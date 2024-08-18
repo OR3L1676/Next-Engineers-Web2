@@ -51,7 +51,23 @@ const Hero2 = () => {
         px={isLargeScreen ? "0" : "30px"}
       >
         <Heading fontSize="xxx-large" mb={4}>
-          לימודי STEAM לילדים
+          לימודי{" "}
+          <Box as="span" color="#FF5454">
+            S
+          </Box>
+          <Box as="span" color="orange">
+            T
+          </Box>
+          <Box as="span" color="#FEDB03">
+            E
+          </Box>
+          <Box as="span" color="#45D82F">
+            A
+          </Box>
+          <Box as="span" color="royalblue">
+            M
+          </Box>{" "}
+          לילדים
         </Heading>
         <Text fontSize="large" textAlign="justify" minW="300px" maxW="500px">
           תחומי המדע זוכים בשנים האחרונות לדגש הולך וגובר בתעשיית החינוך, וגישת

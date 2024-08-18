@@ -11,7 +11,6 @@ import {
   ListItem,
   Image,
   Collapse,
-  color,
   Menu,
   MenuButton,
   MenuItem,
@@ -20,6 +19,7 @@ import {
 import { useState, useEffect } from "react";
 import logo from "../assets/logos/RGB לדיגיטל - לוגו פרוס בעברית-01.png";
 import { Link as RoutLink } from "react-router-dom";
+import LoginButton from "./Login";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,18 +53,7 @@ const Navbar = () => {
     >
       <Flex alignItems="center" justifyContent="space-between">
         <HStack alignItems="center">
-          <Button variant="outline" colorScheme="red" size="sm">
-            הירשם
-          </Button>
-          <Button
-            backgroundColor="#3AB9FF"
-            color="white"
-            _hover={{ backgroundColor: "skyblue" }}
-            size="sm"
-            mr={4}
-          >
-            התחבר
-          </Button>
+          <LoginButton />
         </HStack>
         <IconButton
           size="md"
@@ -87,14 +76,18 @@ const Navbar = () => {
             variant="ghost"
             color="#3AB9FF"
             fontSize={17}
+            as={RoutLink}
+            to="Locations"
           >
-            תקשורת
+            סניפים
           </Button>
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
             variant="ghost"
             color="#3AB9FF"
             fontSize={17}
+            as={RoutLink}
+            to="Plans"
           >
             תוכניות
           </Button>

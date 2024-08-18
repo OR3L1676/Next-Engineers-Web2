@@ -5,6 +5,7 @@ import pattern from "../assets/couldbegood/03355b_ccff82c916294d3e83a8d81437ae7f
 
 const HeroVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const backgroundColor = "#3AB9FF";
 
   useEffect(() => {
     if (videoRef.current) {
@@ -17,16 +18,17 @@ const HeroVideo = () => {
       display="flex"
       justifyContent="center"
       bg="gray.200"
-      backgroundImage={`url(${pattern})`}
+      background={`linear-gradient(${backgroundColor}, ${backgroundColor}), url(${pattern})`}
+      backgroundBlendMode="overlay"
       backgroundPosition="center"
       backgroundSize="contain"
       backgroundRepeat="repeat"
     >
       <Box
         overflow="hidden"
-        width={{ lg: "65%", sm: "100%" }}
-        py={{ lg: "85px", sm: "0px" }}
-        borderRadius={{ lg: "20px", sm: "0px" }}
+        w={{ lg: "65%", md: "75%", base: "100%" }}
+        py={{ lg: "85px", md: "50px", base: "0px" }}
+        borderRadius={{ lg: "20px", md: "20px", sm: "0px" }}
       >
         <video
           ref={videoRef}

@@ -16,6 +16,9 @@ import InventorSquared from "./pages/InventorSquared";
 import FirstGrades from "./pages/FirstGrades";
 import SecondGrades from "./pages/SecondGrades";
 import Robologie from "./pages/Robologie";
+import Plans from "./pages/Plans";
+import Locations from "./pages/Locations";
+import Hero4 from "./components/Hero4";
 
 const App = () => {
   useEffect(() => {
@@ -42,16 +45,19 @@ const App = () => {
                     <Hero2 />
                     <Hero3 />
                     <CardGrid />
+                    <Hero4 />
                     <HeroVideo />
                   </>
                 }
               />
+              <Route path="/Plans" element={<Plans />} />
               <Route path="/MothersGenius" element={<MothersGenius />} />
-              <Route path="/CrazyInventors" element={<CrazyInventors />} />
+              <Route path="/Locations" element={<Locations />} />
+              {/*<Route path="/CrazyInventors" element={<CrazyInventors />} />
               <Route path="/InventorSquared" element={<InventorSquared />} />
               <Route path="/FirstGrades" element={<FirstGrades />} />
               <Route path="/SecondGrades" element={<SecondGrades />} />
-              <Route path="/Robologie" element={<Robologie />} />
+              <Route path="/Robologie" element={<Robologie />} /> */}
             </Routes>
           </GridItem>
           <GridItem area={"footer"}></GridItem>

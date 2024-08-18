@@ -23,6 +23,7 @@ const MCard = ({ heading, body, image, color }: Props) => {
         color={color === "#FEDB03" ? "#3AB9FF" : "white"}
         overflow="hidden"
         minH="550px"
+        boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px;"}
       >
         <CardHeader pb={4} p={0} overflow="hidden" borderRadius="20px 20px 0 0">
           <Image w="100%" h="400px" src={image} objectFit="cover" />
