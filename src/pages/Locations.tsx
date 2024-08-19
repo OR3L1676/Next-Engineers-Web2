@@ -47,10 +47,10 @@ const Locations = () => {
       <Box display="flex" alignItems="center" flexDirection="column">
         <Box maxW="1000px">
           <Heading css={{ direction: "rtl" }} mb={20}>
-            <Box as="span" color="#FF0004">
+            <Box as="span" color="#3AB9FF">
               מהנדסי
             </Box>{" "}
-            <Box as="span" color="#3AB9FF">
+            <Box as="span" color="#FF0004">
               הדור הבא
             </Box>{" "}
             <Box as="span" color="#3BC402">
