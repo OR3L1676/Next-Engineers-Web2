@@ -31,27 +31,21 @@ function LoginButton() {
         <>
           <Button variant="outline" colorScheme="red" size="sm" py={4}>
             {data.name}
-            <Image
-              src={data.picture}
-              boxSize={7}
-              borderRadius="full"
-              alt="Profile"
-              ml={2}
-            />
+            <Image src={data.picture} boxSize={7} borderRadius="full" ml={2} />
           </Button>
         </>
       ) : (
         <>
-        <Button
-          onClick={() => login()}
-          variant="outline"
-          colorScheme="red"
-          size="sm"
-        >
-          הירשם{" "}
-        </Button>
+          <Button
+            onClick={() => login()}
+            variant="outline"
+            colorScheme="red"
+            size="sm"
+          >
+            הירשם{" "}
+          </Button>
 
-        <Button
+          <Button
             backgroundColor="#3AB9FF"
             color="white"
             _hover={{ backgroundColor: "skyblue" }}
@@ -60,7 +54,7 @@ function LoginButton() {
           >
             התחבר
           </Button>
-          </>
+        </>
       )}
     </>
   );
