@@ -21,6 +21,7 @@ const Hero2 = () => {
       px={isLargeScreen ? "33" : 0}
       py={isLargeScreen ? 10 : 0}
       pb={isLargeScreen ? 10 : 5}
+      pt={isLargeScreen ? "140px" : "80px"}
       background={`linear-gradient(${backgroundColor}, ${backgroundColor}), url(${pattern})`}
       backgroundBlendMode="overlay"
       backgroundPosition="center"

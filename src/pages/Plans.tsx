@@ -27,6 +27,7 @@ const Plans = () => {
         px={{ base: "20px", md: "50px", lg: "300px" }}
         py={isLargeScreen ? 10 : 0}
         pb={isLargeScreen ? 10 : 5}
+        pt={isLargeScreen ? "140px" : "100px"}
         background={`linear-gradient(${backgroundColor}, ${backgroundColor}), url(${pattern})`}
         backgroundBlendMode="overlay"
         backgroundPosition="center"

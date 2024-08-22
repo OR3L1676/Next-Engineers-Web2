@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import pattern from "../assets/couldbegood/03355b_ccff82c916294d3e83a8d81437ae7f3e~mv2.png";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import locationsImport from "../services/locations";
 
 interface Location {
   id: number;
@@ -20,32 +21,8 @@ interface Location {
 
 const Locations = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
-  const locations: Location[] = [
-    {
-      id: 1,
-      locationName: "נהריה",
-      name: "עינבל ברנשטיין",
-      mail: "nextengi.galilm@gmail.com",
-      lat: 33.0079,
-      lng: 35.0945,
-    },
-    {
-      id: 2,
-      locationName: "מזרח ירושלים",
-      name: "ליאור דשקוטאי",
-      mail: "nextengi.galilm@gmail.com",
-      lat: 31.7683,
-      lng: 35.2137,
-    },
-    {
-      id: 3,
-      locationName: "צפון ירושלים",
-      name: "Isam & Mhadi Tamimi",
-      mail: "mahdi.decart@gmail.com",
-      lat: 31.8133,
-      lng: 35.2425,
-    },
-  ];
+  const locations: Location[] = locationsImport;
+
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );
@@ -56,6 +33,7 @@ const Locations = () => {
   };
   const [center, setCenter] = useState({ lat: 31.5, lng: 34.8516 }); // Default center in Israel
   const [zoom, setZoom] = useState(7);
+  const googleMapApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
@@ -75,10 +53,11 @@ const Locations = () => {
 
   return (
     <Box
-      h="89vh"
+      h="100vh"
       display="flex"
       alignItems="center"
       flexDirection="column"
+      pt={isLargeScreen ? "140px" : "100px"}
       backgroundImage={`url(${pattern})`}
       backgroundPosition="center"
       backgroundSize="contain"
@@ -105,7 +84,7 @@ const Locations = () => {
           mr={{ md: "80px", base: "0" }}
           mb={{ base: "30px", md: "0" }}
         >
-          <LoadScript googleMapsApiKey="AIzaSyC1ab4WQA38K8s9umJxK3eVr419wAvQH3o">
+          <LoadScript googleMapsApiKey={googleMapApiKey}>
             <GoogleMap
               mapContainerStyle={{
                 width: "400px",

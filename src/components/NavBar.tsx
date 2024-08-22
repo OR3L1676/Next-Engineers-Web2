@@ -46,7 +46,7 @@ const Navbar = () => {
       bg="gray.100"
       px={4}
       py={5}
-      position={isSticky ? "fixed" : "static"}
+      position={isSticky ? "fixed" : "fixed"}
       top={0}
       width="100%"
       zIndex={10}
@@ -80,6 +80,16 @@ const Navbar = () => {
             to="Locations"
           >
             סניפים
+          </Button>
+          <Button
+            _hover={{ bg: "skyblue", color: "white" }}
+            variant="ghost"
+            color="#3AB9FF"
+            fontSize={17}
+            as={RoutLink}
+            to="Franchisees"
+          >
+            זכיינים
           </Button>
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
@@ -162,40 +172,44 @@ const Navbar = () => {
             <List as="nav" spacing={4}>
               <ListItem>
                 <Link
-                  href="#"
                   borderBottom="1px solid grey"
                   display="block"
                   _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="/"
                 >
                   בית
                 </Link>
               </ListItem>
               <ListItem>
                 <Link
-                  href="#"
                   borderBottom="1px solid grey"
                   display="block"
                   _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="/Plans"
                 >
-                  שירותים
+                  תוכניות
                 </Link>
               </ListItem>
               <ListItem>
                 <Link
-                  href="#"
                   borderBottom="1px solid grey"
                   display="block"
                   _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="/Locations"
                 >
-                  תקשורת
+                  סניפים
                 </Link>
               </ListItem>
               <ListItem>
                 <Link
-                  href="#"
                   borderBottom="1px solid grey"
                   display="block"
                   _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="#"
                 >
                   קצת עלינו
                 </Link>

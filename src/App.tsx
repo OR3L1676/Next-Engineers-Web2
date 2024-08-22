@@ -19,6 +19,7 @@ import Robologie from "./pages/Robologie";
 import Plans from "./pages/Plans";
 import Locations from "./pages/Locations";
 import Hero4 from "./components/Hero4";
+import Franchisees from "./pages/franchisees/Franchisees";
 
 const App = () => {
   useEffect(() => {
@@ -53,6 +54,7 @@ const App = () => {
               <Route path="/Plans" element={<Plans />} />
               <Route path="/MothersGenius" element={<MothersGenius />} />
               <Route path="/Locations" element={<Locations />} />
+              <Route path="/Franchisees" element={<Franchisees />} />
               {/*<Route path="/CrazyInventors" element={<CrazyInventors />} />
               <Route path="/InventorSquared" element={<InventorSquared />} />
               <Route path="/FirstGrades" element={<FirstGrades />} />
