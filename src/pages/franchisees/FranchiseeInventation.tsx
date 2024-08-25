@@ -40,8 +40,7 @@ const FranchiseeInventation = () => {
             pb="20px"
             textAlign={isLargeScreen ? "right" : "center"}
           >
-            הפוך לזכיין <br />
-            איתנו!
+            הפוך לזכיין!
           </Heading>
           <Text
             fontSize={{ lg: "xxx-large", md: "xx-large", base: "xx-large" }}

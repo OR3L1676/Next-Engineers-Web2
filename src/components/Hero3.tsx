@@ -43,7 +43,11 @@ const Hero3 = () => {
           ml={isLargeScreen ? 10 : 0}
           px={isLargeScreen ? "0" : "30px"}
         >
-          <Heading fontSize="xxx-large" color="#3AB9FF" mb={5}>
+          <Heading
+            fontSize={isLargeScreen ? "xxx-large" : "xx-large"}
+            color="#3AB9FF"
+            mb={5}
+          >
             שפרו את הידע ואת כישורי הלמידה של ילדיכם באמצעות תוכניות מהנדסי הדור
             הבא
           </Heading>

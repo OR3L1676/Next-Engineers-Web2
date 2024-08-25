@@ -2,6 +2,8 @@ import { Box, useBreakpointValue } from "@chakra-ui/react";
 import FranchiseeOpeningVideo from "./FranchiseeOpeningVideo";
 import FranchiseeInventation from "./FranchiseeInventation";
 import FranchiseeModel from "./FranchiseeModel";
+import FranchiseeAdvantages from "./FranchiseeAdvantages";
+import FranchiseeTable from "./FranchiseeTable";
 
 const Franchisees = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
@@ -18,6 +20,8 @@ const Franchisees = () => {
         <FranchiseeInventation />
       </Box>
       <FranchiseeModel />
+      <FranchiseeAdvantages />
+      <FranchiseeTable />
     </>
   );
 };

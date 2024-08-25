@@ -166,7 +166,7 @@ const Navbar = () => {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} endingHeight="150px" animateOpacity>
+      <Collapse in={isOpen} endingHeight="190px" animateOpacity>
         <Box pb={4} display={{ md: "none" }} textAlign="end">
           <Box ml="auto">
             <List as="nav" spacing={4}>
@@ -201,6 +201,17 @@ const Navbar = () => {
                   to="/Locations"
                 >
                   סניפים
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  borderBottom="1px solid grey"
+                  display="block"
+                  _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="/Franchisees"
+                >
+                  זכיינים
                 </Link>
               </ListItem>
               <ListItem>

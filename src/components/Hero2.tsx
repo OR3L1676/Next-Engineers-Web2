@@ -35,6 +35,7 @@ const Hero2 = () => {
         mr={isLargeScreen ? 10 : 0}
         borderRadius={isLargeScreen ? 20 : 0}
         overflow="hidden"
+        boxShadow="rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px" // Apply the box shadow here
       >
         <video
           src={video}

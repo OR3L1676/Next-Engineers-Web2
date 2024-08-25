@@ -7,16 +7,25 @@ import {
   HStack,
   Image,
 } from "@chakra-ui/react";
+import ImageCarousel from "./ImageCarousel"; // Make sure to import your ImageCarousel component
 
 interface Props {
-  image: string;
+  image: string | string[];
   heading: string;
   body: string;
   side: "right" | "left";
   bottomImage?: string;
+  v2?: boolean;
 }
 
-const Vcard = ({ image, heading, body, side, bottomImage }: Props) => {
+const Vcard = ({
+  image,
+  heading,
+  body,
+  side,
+  bottomImage,
+  v2 = false,
+}: Props) => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
 
   return (
@@ -30,7 +39,7 @@ const Vcard = ({ image, heading, body, side, bottomImage }: Props) => {
         w="100%"
       >
         <Box
-          borderBottom="#FEDB03 20px double"
+          borderBottom={v2 ? "" : "#FEDB03 20px double"}
           maxW="1000px"
           display="flex"
           alignItems="center"
@@ -51,19 +60,24 @@ const Vcard = ({ image, heading, body, side, bottomImage }: Props) => {
             w="100%"
             overflow="hidden"
           >
-            <Image
-              src={image}
-              objectFit="cover"
-              w={isLargeScreen ? "100%" : "70%"}
-              h={isLargeScreen ? "300px" : "auto"}
-              borderRadius="20px"
-              maxW="700px"
-            />
+            {Array.isArray(image) ? (
+              <ImageCarousel images={image} />
+            ) : (
+              <Image
+                src={image}
+                objectFit="cover"
+                w={isLargeScreen ? "100%" : "100%"}
+                h={isLargeScreen ? "300px" : "auto"}
+                borderRadius={isLargeScreen ? "20px" : 0}
+                maxW="700px"
+              />
+            )}
             <VStack
               minW="280px"
               maxW="700px"
               w="100%"
-              textAlign={isLargeScreen ? "justify" : "center"}
+              textAlign="justify"
+              display="-moz-initial"
               css={{ direction: "rtl" }}
               ml={
                 isLargeScreen && side === "right"
@@ -81,14 +95,31 @@ const Vcard = ({ image, heading, body, side, bottomImage }: Props) => {
               }
               px={isLargeScreen ? "0" : "30px"}
             >
-              <Heading fontSize="xx-large" color="#3AB9FF" mb={5}>
-                {heading}
-              </Heading>
+              {v2 ? (
+                ""
+              ) : (
+                <Heading
+                  textAlign="right"
+                  fontSize="xx-large"
+                  color="#3AB9FF"
+                  mb={5}
+                >
+                  {heading}
+                </Heading>
+              )}
               <Text
                 fontSize="large"
                 color="black"
                 mb={isLargeScreen ? 0 : "40px"}
+                whiteSpace="pre-line"
               >
+                {v2 ? (
+                  <Heading display="inline" fontSize="20px">
+                    {heading} -{" "}
+                  </Heading>
+                ) : (
+                  ""
+                )}
                 {body}
               </Text>
             </VStack>
