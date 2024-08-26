@@ -68,6 +68,8 @@ const Navbar = () => {
             variant="ghost"
             color="#3AB9FF"
             fontSize={17}
+            as={RoutLink}
+            to="AboutUs"
           >
             קצת עלינו
           </Button>
@@ -101,57 +103,6 @@ const Navbar = () => {
           >
             תוכניות
           </Button>
-          /-------------
-          <Menu>
-            <MenuButton
-              color="#3AB9FF"
-              _hover={{ bg: "skyblue", color: "white" }}
-              as={Button}
-            >
-              תוכניות
-            </MenuButton>
-            <MenuList color="#3AB9FF" fontSize={17} textAlign="justify">
-              <MenuItem
-                justifyContent={"center"}
-                as={RoutLink}
-                to="MothersGenius"
-              >
-                גאון של אמא
-              </MenuItem>
-              <MenuItem
-                justifyContent={"center"}
-                as={RoutLink}
-                to="CrazyInventors"
-              >
-                ממציאים משוגעים
-              </MenuItem>
-              <MenuItem
-                justifyContent={"center"}
-                as={RoutLink}
-                to="InventorSquared"
-              >
-                ממציאים בריבוע
-              </MenuItem>
-              <MenuItem
-                justifyContent={"center"}
-                as={RoutLink}
-                to="FirstGrades"
-              >
-                'מהנדסי הדור הבא - כיתות א'-ב
-              </MenuItem>
-              <MenuItem
-                justifyContent={"center"}
-                as={RoutLink}
-                to="SecondGrades"
-              >
-                'מהנדסי הדור הבא - כיתות ג'-ה
-              </MenuItem>
-              <MenuItem justifyContent={"center"} as={RoutLink} to="Robologie">
-                רובולוגי
-              </MenuItem>
-            </MenuList>
-          </Menu>
-          /--------------
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
             variant="ghost"
@@ -220,7 +171,7 @@ const Navbar = () => {
                   display="block"
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
-                  to="#"
+                  to="AboutUs"
                 >
                   קצת עלינו
                 </Link>

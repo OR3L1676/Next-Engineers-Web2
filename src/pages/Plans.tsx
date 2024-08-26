@@ -14,6 +14,7 @@ import crazyinventorslogo from "../assets/plans-src/ממציאים_משוגעי�
 import inventorsquaredlogo from "../assets/plans-src/ממציאים_בריבוע.webp";
 import robologielogo from "../assets/plans-src/רובולוגי.webp";
 import firstgradeslogo from "../assets/plans-src/תלן.webp";
+import ContactUsFooter from "../components/ContactUsFooter";
 
 const Plans = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
@@ -146,6 +147,7 @@ const Plans = () => {
 
 התוכנית דומה לתוכנית "גאון של אמא" ומותאמת במבנה שלה לסביבה הבית ספרית.`}
       />
+      <ContactUsFooter />
     </>
   );
 };

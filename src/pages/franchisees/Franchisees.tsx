@@ -4,6 +4,7 @@ import FranchiseeInventation from "./FranchiseeInventation";
 import FranchiseeModel from "./FranchiseeModel";
 import FranchiseeAdvantages from "./FranchiseeAdvantages";
 import FranchiseeTable from "./FranchiseeTable";
+import ContactUsFooter from "../../components/ContactUsFooter";
 
 const Franchisees = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
@@ -22,6 +23,7 @@ const Franchisees = () => {
       <FranchiseeModel />
       <FranchiseeAdvantages />
       <FranchiseeTable />
+      <ContactUsFooter />
     </>
   );
 };

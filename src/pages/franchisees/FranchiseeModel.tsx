@@ -23,6 +23,8 @@ import HeroVideo from "../../components/HeroVideo";
 const FranchiseeModel = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
   const scrollimgarr = [scrollimg1, scrollimg2, scrollimg3, scrollimg4];
+  const scrollimgarr2 = [image1, image2, image3, image4];
+
   return (
     <>
       <Box
@@ -100,6 +102,7 @@ const FranchiseeModel = () => {
 כשהילדים מאושרים - הם ההורים מאושרים - והעסק שלך יפרח."
           side="left"
         />
+
         <HeroVideo noBackground={true} />
       </Box>
     </>
