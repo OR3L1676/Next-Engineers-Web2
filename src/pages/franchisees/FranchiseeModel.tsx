@@ -102,7 +102,6 @@ const FranchiseeModel = () => {
 כשהילדים מאושרים - הם ההורים מאושרים - והעסק שלך יפרח."
           side="left"
         />
-
         <HeroVideo noBackground={true} />
       </Box>
     </>

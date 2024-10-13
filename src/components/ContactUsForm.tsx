@@ -24,7 +24,7 @@ const ContactUsForm = () => {
 
   const onSubmit = async (data: FieldValues) => {
     try {
-      await axios.post("http://localhost:5000/send-email", data);
+      await axios.post("http://localhost:3000/send-email", data);
       alert("Email sent successfully!");
     } catch (error) {
       console.error("Error sending email", error);

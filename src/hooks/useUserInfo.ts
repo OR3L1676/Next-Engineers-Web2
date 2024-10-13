@@ -30,6 +30,8 @@ const useUserInfo = (accessToken: string) => {
       })
       .then((res) => {
         setData(res.data);
+        console.log('Hook res: ', res);
+        
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
