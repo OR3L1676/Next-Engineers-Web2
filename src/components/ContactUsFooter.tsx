@@ -38,7 +38,7 @@ const ContactUsFooter = () => {
         <Box css={{ direction: "rtl" }} pt={isLargeScreen ? "" : "100px"}>
           <Heading color="#3AB9FF">אז למה אתם מחכים?</Heading>
           <Heading color="#3BC402" mb="20px">
-            היצטרפו למשפחה שלנו!
+            הצטרפו למשפחה שלנו!
           </Heading>
           <Text textAlign="right" color="#3AB9FF">
             יצירת קשר

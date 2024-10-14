@@ -8,6 +8,7 @@ import {
   Input,
   Link,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import {
   FaFacebook,
@@ -18,19 +19,62 @@ import {
 } from "react-icons/fa";
 import { FieldValues, useForm } from "react-hook-form";
 import axios from "axios";
+import { useState } from "react";
+
+const showToast = (
+  toast: any,
+  title: string,
+  description: string,
+  status: "success" | "error"
+) => {
+  toast({
+    title: title,
+    description: description,
+    status: status,
+    duration: 9000,
+    isClosable: true,
+  });
+};
 
 const ContactUsForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const toast = useToast(); // Initialize the toast hook
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async (data: FieldValues) => {
+    data.email = data.email.toLowerCase();
+    data.phoneNumber = data.phoneNumber.replace(/-/g, "");
+    console.log(data);
+
     try {
-      await axios.post("http://localhost:3000/send-email", data);
-      alert("Email sent successfully!");
+      // Send form data to another API
+      await axios.post("http://localhost:3000/api/forms", {
+        firstName: data.firstName || "",
+        lastName: data.lastName || "",
+        phone: data.phoneNumber,
+        email: data.email,
+        address: data.address || "",
+        message: data.message || "",
+      });
+
+      // Show success toast
+      setTimeout(() => {
+        showToast(toast, "שליחת טופס", "הפעולה בוצעה בהצלחה", "success");
+      }, 300);
+
+      reset(); // Reset the form after successful submission
     } catch (error) {
-      console.error("Error sending email", error);
-      alert("Failed to send email.");
+      console.error("Error sending email or saving form data", error);
+
+      // Show error toast
+      setTimeout(() => {
+        showToast(toast, "שגיאה התרחשה", "הייתה בעיה בשליחת הטופס", "error");
+      }, 300);
+    } finally {
+      setIsSubmitted(false);
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -83,7 +127,7 @@ const ContactUsForm = () => {
                 border="0px solid"
                 bg="rgba(255, 255, 255, 0.5)"
                 textAlign="right"
-                type="number"
+                type="string"
                 required
                 {...register("phoneNumber")}
               />
@@ -98,7 +142,7 @@ const ContactUsForm = () => {
               bg="rgba(255, 255, 255, 0.5)"
               textAlign="right"
               type="text"
-              {...register("message")}
+              {...register("address")}
             />
           </Box>
           <Box mb="50px">
@@ -158,7 +202,11 @@ const ContactUsForm = () => {
           </HStack>
 
           <Box textAlign="center">
-            <Button colorScheme="yellow" type="submit">
+            <Button
+              colorScheme="yellow"
+              type="submit"
+              onClick={() => setIsSubmitted(true)}
+            >
               שלח
             </Button>
           </Box>
