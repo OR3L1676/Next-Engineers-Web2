@@ -5,16 +5,23 @@ import useUserInfo, { UserData } from "../hooks/useUserInfo";
 import axios from "axios";
 import { CloseIcon } from "@chakra-ui/icons";
 
-function LoginButton() {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
+interface Props {
+  onConnectedUser: (connected: boolean) => void;
+}
+
+function LoginButton({ onConnectedUser }: Props) {
+  const [accessToken, setAccessToken] = useState<string | null>(
+    localStorage.getItem("accessToken")
+  );
   const { data, error } = useUserInfo(accessToken || "");
-  const [isConnectUser, setIsConnectUser] = useState(false);
+  const [isConnectUser, setIsConnectUser] = useState(!!accessToken); // Check if token exists on load
   const [connectReq, setConnectReq] = useState<string | "">();
   const toast = useToast();
 
   const connect = useGoogleLogin({
     onSuccess: (response: any) => {
       setAccessToken(response.access_token);
+      localStorage.setItem("accessToken", response.access_token); // Store token
     },
     onError: (error) => {
       console.log("Login failed", error);
@@ -33,29 +40,26 @@ function LoginButton() {
           sub: data.sub,
         })
         .then((res) => {
-          console.log("User Created in Successfully", res.data);
+          console.log("User Created Successfully", res.data);
           setIsConnectUser(true);
-          setTimeout(() => {
-            toast({
-              title: "יצירת חשבון",
-              description: "החשבון שלך נוצר בהצלחה",
-              status: "success",
-              duration: 9000,
-              isClosable: true,
-            });
-          }, 300);
+          onConnectedUser(true);
+          toast({
+            title: "יצירת חשבון",
+            description: "החשבון שלך נוצר בהצלחה",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
         })
         .catch((err) => {
           console.log("Error - signup:", err.message);
-          setTimeout(() => {
-            toast({
-              title: "שגיאה התרחשה",
-              description: "הייתה בעיה ביצירת החשבון שלך",
-              status: "error",
-              duration: 9000,
-              isClosable: true,
-            });
-          }, 300);
+          toast({
+            title: "שגיאה התרחשה",
+            description: "הייתה בעיה ביצירת החשבון שלך",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
         });
     } else if (data && connectReq === "/signin") {
       axios
@@ -66,38 +70,42 @@ function LoginButton() {
         .then((res) => {
           console.log("User Logged in Successfully", res.data);
           setIsConnectUser(true);
-          setTimeout(() => {
-            toast({
-              title: "התחברות",
-              description: "התחברת לחשבון בהצלחה",
-              status: "success",
-              duration: 9000,
-              isClosable: true,
-            });
-          }, 300);
+          onConnectedUser(true);
+          toast({
+            title: "התחברות",
+            description: "התחברת לחשבון בהצלחה",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
         })
         .catch((err) => {
           console.log("Error - signin:", err.message);
-          setTimeout(() => {
-            toast({
-              title: "שגיאה התרחשה",
-              description: "הייתה בעיה להתחבר לחשבון שלך",
-              status: "error",
-              duration: 9000,
-              isClosable: true,
-            });
-          }, 300);
+          toast({
+            title: "שגיאה התרחשה",
+            description: "הייתה בעיה להתחבר לחשבון שלך",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
         });
     }
-  }, [data, connectReq]); // add connectReq here
+  }, [data, connectReq, toast]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("kidsClubAccess");
+    setAccessToken(null);
+    setIsConnectUser(false);
+    onConnectedUser(false);
+  };
 
   return (
     <>
-      {/*&& isLoggedIn && !errorPost */}
       {data && isConnectUser ? (
         <>
           <Button
-            onClick={() => setIsConnectUser(false)}
+            onClick={handleLogout}
             leftIcon={<CloseIcon />}
             colorScheme="red"
             variant="outline"
@@ -121,7 +129,7 @@ function LoginButton() {
             colorScheme="red"
             size="sm"
           >
-            הירשם{" "}
+            הירשם
           </Button>
 
           <Button

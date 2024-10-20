@@ -11,30 +11,37 @@ import {
   ListItem,
   Image,
   Collapse,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import logo from "../assets/logos/RGB לדיגיטל - לוגו פרוס בעברית-01.png";
 import { Link as RoutLink } from "react-router-dom";
 import LoginButton from "./Login";
+import KidsClubModal from "./KidsClubModal";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSticky, setIsSticky] = useState(false);
+  const [isConnectUser, setIsConnectedUser] = useState(false);
+  const [isConnectKidsClub, setIsConnectKidsClub] = useState(false);
+  const [isMOpen, setIsMOpen] = useState(false); // Modal open state
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    const userConnected = localStorage.getItem("kidsClubAccess");
+    const kidsClubAccess = localStorage.getItem("isConnectUser") === "true";
+
+    if (userConnected) {
+      setIsConnectedUser(true);
+    }
+
+    if (kidsClubAccess) {
+      setIsConnectKidsClub(true);
+    }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -46,14 +53,16 @@ const Navbar = () => {
       bg="gray.100"
       px={4}
       py={5}
-      position={isSticky ? "fixed" : "fixed"}
+      position="fixed"
       top={0}
       width="100%"
       zIndex={10}
     >
       <Flex alignItems="center" justifyContent="space-between">
         <HStack alignItems="center">
-          <LoginButton />
+          <LoginButton
+            onConnectedUser={(connected) => setIsConnectedUser(connected)}
+          />
         </HStack>
         <IconButton
           size="md"
@@ -63,6 +72,29 @@ const Navbar = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
+          {isConnectUser && (
+            <Box>
+              <Button
+                _hover={{ bg: "rgba(245, 39, 39, 0.65)", color: "white" }}
+                variant="ghost"
+                color="rgb(245, 39, 39)"
+                fontSize={17}
+                as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
+                to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
+                onClick={() => {
+                  if (!isConnectKidsClub) setIsMOpen(true);
+                }}
+              >
+                מועדון הילדים
+              </Button>
+              <KidsClubModal
+                isOpen={isMOpen}
+                onClose={() => setIsMOpen(false)}
+                onConnectedUser={() => setIsConnectKidsClub(true)}
+              />
+            </Box>
+          )}
+
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
             variant="ghost"
@@ -117,7 +149,7 @@ const Navbar = () => {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} endingHeight="190px" animateOpacity>
+      <Collapse in={isOpen} endingHeight="230px" animateOpacity>
         <Box pb={4} display={{ md: "none" }} textAlign="end">
           <Box ml="auto">
             <List as="nav" spacing={4}>
@@ -174,6 +206,17 @@ const Navbar = () => {
                   to="AboutUs"
                 >
                   קצת עלינו
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  borderBottom="1px solid grey"
+                  display="block"
+                  _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="KidsClub"
+                >
+                  מועדון הילדים
                 </Link>
               </ListItem>
             </List>

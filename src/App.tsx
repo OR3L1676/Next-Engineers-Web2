@@ -14,6 +14,7 @@ import Hero4 from "./components/Hero4";
 import Franchisees from "./pages/franchisees/Franchisees";
 import AboutUs from "./pages/AboutUs";
 import ContactUsFooter from "./components/ContactUsFooter";
+import KidsClub from "./pages/KidsClub";
 
 const App = () => {
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = () => {
               <Route path="/Locations" element={<Locations />} />
               <Route path="/Franchisees" element={<Franchisees />} />
               <Route path="/AboutUs" element={<AboutUs />} />
+              <Route path="/KidsClub" element={<KidsClub />} />
               {/*<Route path="/CrazyInventors" element={<CrazyInventors />} />
               <Route path="/InventorSquared" element={<InventorSquared />} />
               <Route path="/FirstGrades" element={<FirstGrades />} />
