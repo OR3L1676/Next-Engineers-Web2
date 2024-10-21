@@ -10,9 +10,10 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  useToast, // Import the useToast hook from Chakra UI
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 interface KidsClubModalProps {
   isOpen: boolean;
@@ -27,11 +28,11 @@ function KidsClubModal({
 }: KidsClubModalProps) {
   const passwordRef = React.useRef<HTMLInputElement>(null);
   const toast = useToast();
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleKidsClubPass = (password: string) => {
-    const acssesPassword = import.meta.env.VITE_KIDS_CLUB_PASSWORD;
-    if (password === acssesPassword) {
-      console.log("add to the user the key in the database");
+    const accessPassword = import.meta.env.VITE_KIDS_CLUB_PASSWORD;
+    if (password === accessPassword) {
       toast({
         title: "התחברת בהצלחה",
         description: "הכנסת סיסמא נכונה",
@@ -42,11 +43,14 @@ function KidsClubModal({
       onClose();
       onConnectedUser();
       localStorage.setItem("kidsClubAccess", "true");
+      setTimeout(() => {
+        navigate("/KidsClub"); // Navigate to KidsClub after successful login
+      }, 500);
     } else {
       toast({
         title: "שגיאה",
         description: "סיסמא שגויה",
-        status: "error", // Change status to error for incorrect password
+        status: "error",
         duration: 9000,
         isClosable: true,
       });
@@ -62,8 +66,7 @@ function KidsClubModal({
         <ModalBody pb={6}>
           <FormControl>
             <FormLabel textAlign={"right"}>סיסמא</FormLabel>
-            <Input ref={passwordRef} type="string" />{" "}
-            {/* Use type="password" */}
+            <Input ref={passwordRef} type="password" />
           </FormControl>
         </ModalBody>
         <ModalFooter justifyContent={"left"}>
@@ -72,7 +75,7 @@ function KidsClubModal({
             mr={3}
             onClick={() => {
               if (passwordRef.current) {
-                handleKidsClubPass(passwordRef.current.value); // Pass input value to the handler
+                handleKidsClubPass(passwordRef.current.value);
               }
             }}
           >

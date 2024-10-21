@@ -107,12 +107,12 @@ function LoginButton({ onConnectedUser }: Props) {
           <Button
             onClick={handleLogout}
             leftIcon={<CloseIcon />}
-            colorScheme="red"
+            color="rgb(197,48,48)"
             variant="outline"
             border="0px"
-          >
-            צא
-          </Button>
+            pr={0}
+            _hover={{ transform: "scale(1.2)" }}
+          ></Button>
           <Button variant="outline" colorScheme="red" size="sm" py={4}>
             {data.name}
             <Image src={data.picture} boxSize={7} borderRadius="full" ml={2} />
