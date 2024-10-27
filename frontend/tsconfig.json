@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/3d-models/published/imagerotator/html/js/jquery-3.4.1.min.js"],
+  "include": ["src", "src/3d-models/published/imagerotator/html/js/jquery-3.4.1.min.js", "backend/next-engineers-server"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

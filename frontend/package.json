@@ -2,11 +2,12 @@
   "name": "next-engineers-web",
   "private": true,
   "version": "0.0.0",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
