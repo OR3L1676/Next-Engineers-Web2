@@ -2,7 +2,7 @@ import { Grid, GridItem, ChakraProvider, Button } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/NavBar";
 import Hero2 from "./components/Hero2";
 import Hero3 from "./components/Hero3";
@@ -15,8 +15,10 @@ import Franchisees from "./pages/franchisees/Franchisees";
 import AboutUs from "./pages/AboutUs";
 import ContactUsFooter from "./components/ContactUsFooter";
 import KidsClub from "./pages/KidsClub";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
+  const [isConnectKidsClub, setIsConnectKidsClub] = useState<Boolean>(Boolean);
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -30,7 +32,11 @@ const App = () => {
       <Router>
         <Grid fontFamily="sans-serif" templateAreas={`"nav" "main" "footer"`}>
           <GridItem area={"nav"}>
-            <Navbar />
+            <Navbar
+              onConnectedKidClub={(isConnectKidsClub: Boolean) => {
+                setIsConnectKidsClub(isConnectKidsClub);
+              }}
+            />
           </GridItem>
           <GridItem area={"main"}>
             <Routes>
@@ -51,12 +57,14 @@ const App = () => {
               <Route path="/Locations" element={<Locations />} />
               <Route path="/Franchisees" element={<Franchisees />} />
               <Route path="/AboutUs" element={<AboutUs />} />
-              <Route path="/KidsClub" element={<KidsClub />} />
-              {/*<Route path="/CrazyInventors" element={<CrazyInventors />} />
-              <Route path="/InventorSquared" element={<InventorSquared />} />
-              <Route path="/FirstGrades" element={<FirstGrades />} />
-              <Route path="/SecondGrades" element={<SecondGrades />} />
-              <Route path="/Robologie" element={<Robologie />} /> */}
+              <Route
+                path="/KidsClub"
+                element={
+                  <PrivateRoute isAllowed={isConnectKidsClub}>
+                    <KidsClub />
+                  </PrivateRoute>
+                }
+              />
             </Routes>
           </GridItem>
           <GridItem area={"footer"}></GridItem>

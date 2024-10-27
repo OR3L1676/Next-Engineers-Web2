@@ -18,12 +18,16 @@ import { Link as RoutLink } from "react-router-dom";
 import LoginButton from "./Login";
 import KidsClubModal from "./KidsClubModal";
 
-const Navbar = () => {
+interface Props {
+  onConnectedKidClub: (isConnectedKidClub: Boolean) => void;
+}
+
+const Navbar = ({ onConnectedKidClub }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSticky, setIsSticky] = useState(false);
-  const [isConnectUser, setIsConnectedUser] = useState(false);
+  const [isConnectUser, setIsConnectedUser] = useState<Boolean>();
   const [isConnectKidsClub, setIsConnectKidsClub] = useState(false);
-  const [isMOpen, setIsMOpen] = useState(false); // Modal open state
+  const [isMOpen, setIsMOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,21 +36,25 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    const userConnected = localStorage.getItem("kidsClubAccess");
-    const kidsClubAccess = localStorage.getItem("isConnectUser") === "true";
+    const userConnected = localStorage.getItem("accessToken");
+    const kidsClubAccess = localStorage.getItem("kidsClubAccess");
 
     if (userConnected) {
       setIsConnectedUser(true);
+    } else {
+      setIsConnectedUser(false);
     }
 
     if (kidsClubAccess) {
       setIsConnectKidsClub(true);
+    } else {
+      setIsConnectKidsClub(false);
     }
-
+    onConnectedKidClub(isConnectKidsClub);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isConnectKidsClub, isConnectUser]);
 
   return (
     <Box
@@ -213,11 +221,19 @@ const Navbar = () => {
                   borderBottom="1px solid grey"
                   display="block"
                   _hover={{ textDecoration: "none" }}
-                  as={RoutLink}
-                  to="KidsClub"
+                  as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
+                  to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
+                  onClick={() => {
+                    if (!isConnectKidsClub) setIsMOpen(true);
+                  }}
                 >
                   מועדון הילדים
                 </Link>
+                <KidsClubModal
+                  isOpen={isMOpen}
+                  onClose={() => setIsMOpen(false)}
+                  onConnectedUser={() => setIsConnectKidsClub(true)}
+                />
               </ListItem>
             </List>
           </Box>
