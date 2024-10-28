@@ -48,7 +48,7 @@ const ContactUsForm = () => {
 
     try {
       // Send form data to another API
-      await axios.post(`${"https://next-engineers-web2.onrender.com"}/api/forms`, {
+      await axios.post("https://next-engineers-web-server.onrender.com/api/forms", {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
         phone: data.phoneNumber,

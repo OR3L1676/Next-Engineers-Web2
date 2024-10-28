@@ -36,7 +36,7 @@ function LoginButton({ onConnectedUser }: Props) {
     if(!data) return;
       if(premission && connectReq === "/signup") {
       axios
-        .post(`https://next-engineers-web2.onrender.com/api/users${connectReq}`, {
+        .post(`https://next-engineers-web-server.onrender.com/api/users${connectReq}`, {
           email: data.email,
           email_verified: data.email_verified,
           given_name: data.given_name,
@@ -70,7 +70,7 @@ function LoginButton({ onConnectedUser }: Props) {
         });
     } else if (premission && connectReq === "/signin") {
       axios
-        .post(`https://next-engineers-web2.onrender.com/api/users${connectReq}`, {
+        .post(`https://next-engineers-web-server.onrender.com/api/users${connectReq}`, {
           email: data.email,
           sub: data.sub,
         })
