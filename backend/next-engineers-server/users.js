@@ -52,6 +52,8 @@ router.post('/signup', async (req, res) => {
     try {
       const savedUser = await user.save(); // Save the user instance
       res.send(savedUser);
+      console.log("Signup request body:", req.body);
+
     } catch (err) {
       const errorMessages = Object.values(err.errors || {}).map(e => e.message);
       res.status(400).send(errorMessages.join(', '));
@@ -70,6 +72,7 @@ router.post('/signin', async (req, res) => {
 
   // If user exists, return user data (or a token in case of JWT-based auth)
   res.send(existingUser);
+  console.log("Signin request body:", req.body);
 });
   
 

@@ -34,7 +34,8 @@ function LoginButton({ onConnectedUser }: Props) {
 
   useEffect(() => {
     if(!data) return;
-    if (premission && connectReq === "/signup") {
+    if (premission) {
+      if(connectReq === "/signup") {
       axios
         .post(`${dbURI}/api/users${connectReq}`, {
           email: data.email,
@@ -103,6 +104,7 @@ function LoginButton({ onConnectedUser }: Props) {
         })
 
     }
+  }
   }, [data, toast]);
 
   const handleLogout = () => {
