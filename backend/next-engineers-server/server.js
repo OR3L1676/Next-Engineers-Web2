@@ -40,5 +40,5 @@ app.use('/api/users', users);
 app.use('/api/forms', forms);
 
 // PORT
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4173;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

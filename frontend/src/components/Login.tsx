@@ -18,6 +18,8 @@ function LoginButton({ onConnectedUser }: Props) {
   const [isConnectUser, setIsConnectUser] = useState(!!accessToken); // Check if token exists on load
   const [connectReq, setConnectReq] = useState<string | "">();
   const toast = useToast();
+  const dbURI = import.meta.env.MONGODB_URI; 
+
 
   const connect = useGoogleLogin({
     onSuccess: (response: any) => {
@@ -34,7 +36,7 @@ function LoginButton({ onConnectedUser }: Props) {
     if(!data) return;
     if (premission && connectReq === "/signup") {
       axios
-        .post(`http://localhost:3000/api/users${connectReq}`, {
+        .post(`${dbURI}/api/users${connectReq}`, {
           email: data.email,
           email_verified: data.email_verified,
           given_name: data.given_name,
@@ -68,7 +70,7 @@ function LoginButton({ onConnectedUser }: Props) {
         });
     } else if (premission && connectReq === "/signin") {
       axios
-        .post(`http://localhost:3000/api/users${connectReq}`, {
+        .post(`${dbURI}/api/users${connectReq}`, {
           email: data.email,
           sub: data.sub,
         })
