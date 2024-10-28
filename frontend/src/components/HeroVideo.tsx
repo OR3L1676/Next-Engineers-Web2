@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import video from "../assets/couldbegood/HEB_short_final_1_LOEREZ.mp4";
+import video from "../assets/couldbegood/HEB_short_final_1.mp4";
 import { useRef, useEffect } from "react";
 import pattern from "../assets/couldbegood/03355b_ccff82c916294d3e83a8d81437ae7f3e~mv2.png";
 
