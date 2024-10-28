@@ -15,7 +15,7 @@ function LoginButton({ onConnectedUser }: Props) {
   );
   const { data, error } = useUserInfo(accessToken || "");
   const [premission, setPremission] = useState(false); 
-  const [isConnectUser, setIsConnectUser] = useState(!!accessToken); // Check if token exists on load
+  const [isConnectUser, setIsConnectUser] = useState(!!accessToken); 
   const [connectReq, setConnectReq] = useState<string | "">();
   const toast = useToast();
   const dbURI = import.meta.env.MONGODB_URI; 
@@ -34,8 +34,7 @@ function LoginButton({ onConnectedUser }: Props) {
 
   useEffect(() => {
     if(!data) return;
-    if (premission) {
-      if(connectReq === "/signup") {
+      if(premission && connectReq === "/signup") {
       axios
         .post(`https://next-engineers-web2.onrender.com/api/users${connectReq}`, {
           email: data.email,
@@ -102,8 +101,6 @@ function LoginButton({ onConnectedUser }: Props) {
           console.log("finnaly check - is isConnectUser",isConnectUser);
           console.log("finnaly check - premission",premission);
         })
-
-    }
   }
   }, [data, toast]);
 

@@ -38,7 +38,7 @@ const showToast = (
 
 const ContactUsForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const toast = useToast(); // Initialize the toast hook
+  const toast = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async (data: FieldValues) => {
@@ -48,7 +48,7 @@ const ContactUsForm = () => {
 
     try {
       // Send form data to another API
-      await axios.post("http://localhost:3000/api/forms", {
+      await axios.post(`${"https://next-engineers-web2.onrender.com"}/api/forms`, {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
         phone: data.phoneNumber,
