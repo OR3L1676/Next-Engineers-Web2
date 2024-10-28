@@ -15,10 +15,20 @@ mongoose.connect(dbURI)
   .catch((err) => console.log('Failed to connect MongoDB', err));
 
 // Enable CORS
-app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from frontend
+const allowedOrigins = [
+  'https://next-engineers-web2.onrender.com', // Replace with your production frontend URL
+  'http://localhost:4173', // Local development URL
+];
 
-// For preflight requests (OPTIONS)
-app.options('*', cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 // Middleware
 app.use(express.json());
