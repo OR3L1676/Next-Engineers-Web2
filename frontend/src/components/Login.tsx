@@ -14,6 +14,7 @@ function LoginButton({ onConnectedUser }: Props) {
     localStorage.getItem("accessToken")
   );
   const { data, error } = useUserInfo(accessToken || "");
+  const [premission, setPremission] = useState(false); 
   const [isConnectUser, setIsConnectUser] = useState(!!accessToken); // Check if token exists on load
   const [connectReq, setConnectReq] = useState<string | "">();
   const toast = useToast();
@@ -22,6 +23,7 @@ function LoginButton({ onConnectedUser }: Props) {
     onSuccess: (response: any) => {
       setAccessToken(response.access_token);
       localStorage.setItem("accessToken", response.access_token); // Store token
+      setPremission(true)   
     },
     onError: (error) => {
       console.log("Login failed", error);
@@ -29,7 +31,8 @@ function LoginButton({ onConnectedUser }: Props) {
   });
 
   useEffect(() => {
-    if (data && connectReq === "/signup") {
+    if(!data) return;
+    if (premission && connectReq === "/signup") {
       axios
         .post(`http://localhost:3000/api/users${connectReq}`, {
           email: data.email,
@@ -53,6 +56,8 @@ function LoginButton({ onConnectedUser }: Props) {
         })
         .catch((err) => {
           console.log("Error - signup:", err.message);
+          setIsConnectUser(false)
+          setPremission(false)  
           toast({
             title: "שגיאה התרחשה",
             description: "הייתה בעיה ביצירת החשבון שלך",
@@ -61,7 +66,7 @@ function LoginButton({ onConnectedUser }: Props) {
             isClosable: true,
           });
         });
-    } else if (data && connectReq === "/signin") {
+    } else if (premission && connectReq === "/signin") {
       axios
         .post(`http://localhost:3000/api/users${connectReq}`, {
           email: data.email,
@@ -79,8 +84,10 @@ function LoginButton({ onConnectedUser }: Props) {
             isClosable: true,
           });
         })
-        .catch((err) => {
+        .catch((err) => {          
           console.log("Error - signin:", err.message);
+          setIsConnectUser(false)
+          setPremission(false)  
           toast({
             title: "שגיאה התרחשה",
             description: "הייתה בעיה להתחבר לחשבון שלך",
@@ -88,9 +95,13 @@ function LoginButton({ onConnectedUser }: Props) {
             duration: 9000,
             isClosable: true,
           });
-        });
+        }).finally(()=> {
+          console.log("finnaly check - is isConnectUser",isConnectUser);
+          console.log("finnaly check - premission",premission);
+        })
+
     }
-  }, [data, connectReq, toast]);
+  }, [data, toast]);
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
