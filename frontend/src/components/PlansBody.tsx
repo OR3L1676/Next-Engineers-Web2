@@ -7,6 +7,7 @@ import {
   Image,
   VStack,
 } from "@chakra-ui/react";
+import { px } from "framer-motion";
 
 interface Props {
   programHeader: string;
@@ -32,23 +33,29 @@ const PlansBody = ({
   return (
     <>
       <Box
-        w="100%"
-        h="100vh"
-        backgroundImage={programImage}
-        backgroundSize="cover"
-        backgroundPosition="center"
-        position="relative"
-        display="flex"
-        justifyContent="center"
-        overflowX="hidden"
+backgroundImage={`url(${programImage})`}
+ backgroundSize="cover"
+ backgroundPosition="center"
+ w="100%"
+ minH={{base : "300px" , sm: "400px", md: "90vh"}}
+ maxH="1000px"
+ display="flex"
+ justifyContent="center"
+ alignItems="top"
+ position="relative"
+  overflowX="hidden"
+
       >
         <Box
-          pt="150px"
+        pt="100px"
           px={3}
           w={{ base: "90%", md: "750px" }}
           overflow="hidden"
         >
-          <Box
+
+          {/* white container with program name */}
+
+           <Box      
             bg="rgba(255,255,255,0.8)"
             p="30px 30px 30px 0px"
             borderRadius={20}
@@ -84,8 +91,12 @@ const PlansBody = ({
                 </Text>
               </VStack>
             </HStack>
-          </Box>
+          </Box> 
+          {/* white container with program name */}
+
         </Box>
+        
+        {/* description box of the program */}
         <Box
           position="absolute"
           bottom="0"
@@ -93,20 +104,43 @@ const PlansBody = ({
           textAlign="justify"
           zIndex={1}
         >
-          <Box
+          {isLargeScreen ? <Box
             bg={colorPDes}
             p={isLargeScreen ? 5 : 3}
-            w={isLargeScreen ? "50vw" : "100vw"}
+            // w={isLargeScreen ? "70%" : "100vw"}
+            w={{sm: "70%", md: "60%"}}
             textAlign="justify"
             m="auto"
-            fontSize={isLargeScreen ? "large" : "smaller"}
+            fontSize={isLargeScreen ? "17px" : "smaller"}
+            whiteSpace="pre-line"
+            css={{ direction: "rtl" }}
+          >
+            {programDes}
+          </Box> : ""}
+        </Box>
+        {/* description box of the program */}
+
+      </Box>
+        {/* description box of the program */}
+       {!isLargeScreen ? <Box
+          w="100%"
+          textAlign="justify"
+        >
+          <Box
+            bg={colorPDes}
+            p={3}
+            w="100%"
+            textAlign="justify"
+            m="auto"
+            fontSize={"12px"}
             whiteSpace="pre-line"
             css={{ direction: "rtl" }}
           >
             {programDes}
           </Box>
-        </Box>
-      </Box>
+        </Box> : ""}
+        {/* description box of the program */}
+      
     </>
   );
 };
