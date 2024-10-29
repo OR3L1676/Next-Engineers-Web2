@@ -168,6 +168,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/"
+                  onClick={isOpen ? onClose : onOpen}
                 >
                   בית
                 </Link>
@@ -179,6 +180,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Plans"
+                  onClick={isOpen ? onClose : onOpen}
                 >
                   תוכניות
                 </Link>
@@ -190,6 +192,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Locations"
+                  onClick={isOpen ? onClose : onOpen}
                 >
                   סניפים
                 </Link>
@@ -201,6 +204,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Franchisees"
+                  onClick={isOpen ? onClose : onOpen}
                 >
                   זכיינים
                 </Link>
@@ -212,6 +216,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="AboutUs"
+                  onClick={isOpen ? onClose : onOpen}
                 >
                   קצת עלינו
                 </Link>
@@ -223,8 +228,9 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
                   to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
-                  onClick={() => {
+                  onClick={ () => {
                     if (!isConnectKidsClub) setIsMOpen(true);
+                    isOpen ? onClose : onOpen
                   }}
                 >
                   מועדון הילדים
