@@ -111,7 +111,8 @@ backgroundImage={`url(${programImage})`}
             w={{sm: "70%", md: "60%"}}
             textAlign="justify"
             m="auto"
-            fontSize={isLargeScreen ? "17px" : "smaller"}
+            fontSize={"17px"}
+            color={colorPDes === "#FEDB03" ? "black" : "white"}
             whiteSpace="pre-line"
             css={{ direction: "rtl" }}
           >
@@ -133,6 +134,7 @@ backgroundImage={`url(${programImage})`}
             textAlign="justify"
             m="auto"
             fontSize={"12px"}
+            color={colorPDes === "#FEDB03" ? "black" : "white"}
             whiteSpace="pre-line"
             css={{ direction: "rtl" }}
           >
