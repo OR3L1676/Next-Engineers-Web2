@@ -23,7 +23,7 @@ const FranchiseeAdvantages = () => {
     >
       <VStack mt={10} mb={10}>
         <Heading color="white" fontSize="65px" mb="20px">
-          ייתרונות
+          יתרונות
         </Heading>
         <Heading
           css={{ direction: "rtl" }}

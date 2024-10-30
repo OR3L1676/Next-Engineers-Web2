@@ -206,6 +206,7 @@ const ContactUsForm = () => {
               colorScheme="yellow"
               type="submit"
               onClick={() => setIsSubmitted(true)}
+              disabled={isSubmitted}
             >
               שלח
             </Button>
