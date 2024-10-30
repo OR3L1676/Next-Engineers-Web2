@@ -42,12 +42,12 @@ const ContactUsForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async (data: FieldValues) => {
+    setIsSubmitted(true); // Disable the button on submission start
     data.email = data.email.toLowerCase();
     data.phoneNumber = data.phoneNumber.replace(/-/g, "");
     console.log(data);
-
+  
     try {
-      // Send form data to another API
       await axios.post("https://next-engineers-web-server.onrender.com/api/forms", {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
@@ -56,22 +56,14 @@ const ContactUsForm = () => {
         address: data.address || "",
         message: data.message || "",
       });
-
-      // Show success toast
-      setTimeout(() => {
-        showToast(toast, "שליחת טופס", "הפעולה בוצעה בהצלחה", "success");
-      }, 300);
-
+  
+      showToast(toast, "שליחת טופס", "הפעולה בוצעה בהצלחה", "success");
       reset(); // Reset the form after successful submission
     } catch (error) {
       console.error("Error sending email or saving form data", error);
-
-      // Show error toast
-      setTimeout(() => {
-        showToast(toast, "שגיאה התרחשה", "הייתה בעיה בשליחת הטופס", "error");
-      }, 300);
+      showToast(toast, "שגיאה התרחשה", "הייתה בעיה בשליחת הטופס", "error");
     } finally {
-      setIsSubmitted(false);
+      setIsSubmitted(false); // Re-enable the button after completion
     }
   };
 
@@ -202,14 +194,14 @@ const ContactUsForm = () => {
           </HStack>
 
           <Box textAlign="center">
-            <Button
-              colorScheme="yellow"
-              type="submit"
-              onClick={() => setIsSubmitted(true)}
-              disabled={isSubmitted}
-            >
-              שלח
-            </Button>
+          <Button
+          colorScheme="yellow"
+          type="submit"
+          isLoading={isSubmitted}  
+          disabled={isSubmitted}   
+        >
+          שלח
+          </Button>
           </Box>
         </FormControl>
       </form>
