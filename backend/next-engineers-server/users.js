@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('./user')
+require('dotenv').config({ path: '../../.env' });
+const jwt = require('jsonwebtoken')
 
 // Get all users
 router.get('/', async (req, res) => {
@@ -71,7 +73,10 @@ router.post('/signin', async (req, res) => {
   }
 
   // If user exists, return user data (or a token in case of JWT-based auth)
-  res.send(existingUser);
+  //JWT
+  const token = jwt.sign({_email: email, _sub: sub}, process.env.SECRET_KEY_JWT);
+
+  res.send(existingUser, token); 
   console.log("Signin request body:", req.body);
 });
   
