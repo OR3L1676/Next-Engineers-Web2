@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('./user')
 const jwt = require('jsonwebtoken')
+const fs = require('fs'); // Import the fs module
+
 
 // Get all users
 router.get('/', async (req, res) => {
