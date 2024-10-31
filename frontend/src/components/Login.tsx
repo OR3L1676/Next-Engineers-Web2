@@ -29,6 +29,7 @@ function LoginButton({ onConnectedUser }: Props) {
     },
     onError: (error) => {
       console.log("Login failed", error);
+      setPremission(false)  
     },
   });
 
@@ -85,7 +86,7 @@ function LoginButton({ onConnectedUser }: Props) {
           console.log("Token: ", token)
           console.log("User Logged in Successfully", user);
           //token section & check
-          
+
           setIsConnectUser(true);
           onConnectedUser(true);
           toast({
