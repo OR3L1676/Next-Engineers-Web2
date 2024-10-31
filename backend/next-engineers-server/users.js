@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('./user')
-require('dotenv').config({ path: '../../.env' });
 const jwt = require('jsonwebtoken')
 
 // Get all users
