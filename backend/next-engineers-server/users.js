@@ -76,10 +76,10 @@ router.post('/signin', async (req, res) => {
   //JWT
   const jwtSecret = process.env.SECRET_KEY_JWT || 'default_fallback_secret';
   const token = jwt.sign({_email: email, _sub: sub}, jwtSecret);
-  console.log(jwtSecret);
+  console.log('Secret: ',jwtSecret);
 
-  // res.send({ user: existingUser, token: token }); 
-  res.send(existingUser); 
+  res.send({ user: existingUser, token: token }); 
+  // res.send(existingUser); 
   console.log("Signin request body:", req.body);
 });
   
