@@ -73,7 +73,7 @@ router.post('/signin', async (req, res) => {
 
   // If user exists, return user data (or a token in case of JWT-based auth)
   //JWT
-  const jwtSecret = process.env.SECRET_KEY_JWT || 'default_fallback_secret';
+  const jwtSecret = fs.readFileSync(path.join('/etc/secrets', 'SECRET_KEY_JWT'), 'utf8').trim();
   const token = jwt.sign({_email: email, _sub: sub}, jwtSecret);
   console.log('Secret: ',jwtSecret);
 
