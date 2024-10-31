@@ -80,7 +80,7 @@ router.post('/signin', async (req, res) => {
   // res.send({ user: existingUser, token: token }); 
   res.send(existingUser); 
   console.log("Signin request body:", req.body);
-});w
+});
   
 
 // Update a user (PUT)
