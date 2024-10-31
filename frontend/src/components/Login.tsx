@@ -46,11 +46,11 @@ function LoginButton({ onConnectedUser }: Props) {
           sub: data.sub,
         })
         .then((res) => {
-          //token section & check
-          const {user, token} = res.data
-          console.log("Token: ", token)
-          console.log("User Created Successfully", user);
-          //token section & check
+          // //token section & check
+          // const {user, token} = res.data ---------
+          // console.log("Token: ", token)
+          // console.log("User Created Successfully", user);
+          // //token section & check
 
           setIsConnectUser(true);
           onConnectedUser(true);
@@ -81,11 +81,11 @@ function LoginButton({ onConnectedUser }: Props) {
           sub: data.sub,
         })
         .then((res) => {
-          //token section & check
-          const {user, token} = res.data
-          console.log("Token: ", token)
-          console.log("User Logged in Successfully", user);
-          //token section & check
+          // //token section & check
+          // const {user, token} = res.data
+          // console.log("Token: ", token)
+          // console.log("User Logged in Successfully", user); -----------
+          // //token section & check
 
           setIsConnectUser(true);
           onConnectedUser(true);
