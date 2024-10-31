@@ -3,7 +3,7 @@ const router = express.Router();
 const {User, validateUser} = require('./user')
 const jwt = require('jsonwebtoken')
 const fs = require('fs'); // Import the fs module
-
+const path = require('path');
 
 // Get all users
 router.get('/', async (req, res) => {
@@ -75,9 +75,24 @@ router.post('/signin', async (req, res) => {
 
   // If user exists, return user data (or a token in case of JWT-based auth)
   //JWT
-  const jwtSecret = fs.readFileSync(path.join('/etc/secrets', 'SECRET_KEY_JWT'), 'utf8').trim();
-  const token = jwt.sign({_email: email, _sub: sub}, jwtSecret);
-  console.log('Secret: ',jwtSecret);
+  const jwtSecretPath = path.join('/etc/secrets', 'SECRET_KEY_JWT');
+  let jwtSecret;
+  
+  try {
+    if (!fs.existsSync(jwtSecretPath)) {
+      console.error(`Secret file not found at ${jwtSecretPath}`);
+      return res.status(500).send('Internal server error');
+    }
+    jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
+  } catch (err) {
+    console.error(`Error reading secret file: ${err.message}`);
+    return res.status(500).send('Internal server error');
+  }
+
+  // Generate JWT
+  const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
+  console.log('Secret: ', jwtSecret);
+
 
   res.send({ user: existingUser, token: token }); 
   // res.send(existingUser); 
