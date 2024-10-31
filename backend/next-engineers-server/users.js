@@ -76,7 +76,7 @@ router.post('/signin', async (req, res) => {
   //JWT
   const token = jwt.sign({_email: email, _sub: sub}, process.env.SECRET_KEY_JWT);
 
-  res.send(existingUser, token); 
+  res.send({ user: existingUser, token: token }); 
   console.log("Signin request body:", req.body);
 });
   
