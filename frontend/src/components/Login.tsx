@@ -44,6 +44,8 @@ function LoginButton({ onConnectedUser }: Props) {
           name: data.name,
           picture: data.picture,
           sub: data.sub,
+        }, {
+          withCredentials: true
         })
         .then((res) => {
           // //token section & check
@@ -79,6 +81,8 @@ function LoginButton({ onConnectedUser }: Props) {
         .post(`https://next-engineers-web-server.onrender.com/api/users${connectReq}`, {
           email: data.email,
           sub: data.sub,
+        }, {
+          withCredentials: true
         })
         .then((res) => {
           // //token section & check
