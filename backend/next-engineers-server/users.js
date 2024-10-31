@@ -74,12 +74,13 @@ router.post('/signin', async (req, res) => {
 
   // If user exists, return user data (or a token in case of JWT-based auth)
   //JWT
-  // const token = jwt.sign({_email: email, _sub: sub}, process.env.SECRET_KEY_JWT);
+  const token = jwt.sign({_email: email, _sub: sub}, process.env.SECRET_KEY_JWT);
+  console.log(process.env.SECRET_KEY_JWT);
 
   // res.send({ user: existingUser, token: token }); 
   res.send(existingUser); 
   console.log("Signin request body:", req.body);
-});
+});w
   
 
 // Update a user (PUT)
