@@ -54,6 +54,7 @@ function LoginButton({ onConnectedUser }: Props) {
           console.log("User Created Successfully", user);
           // //token section & check
 
+          localStorage.setItem("JwtToken", token); 
           setIsConnectUser(true);
           onConnectedUser(true);
           toast({
@@ -89,8 +90,9 @@ function LoginButton({ onConnectedUser }: Props) {
           const {user, token} = res.data
           console.log("Token: ", token)
           console.log("User Logged in Successfully", user); 
-          // //token section & check
+          // //token section & check  
 
+          localStorage.setItem("JwtToken", token); 
           setIsConnectUser(true);
           onConnectedUser(true);
           toast({

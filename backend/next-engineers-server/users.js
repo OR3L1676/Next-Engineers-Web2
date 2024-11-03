@@ -23,6 +23,7 @@ router.get('/:token', async (req, res) => {
     if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
+    console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
 
     const users = await User.find();
     res.send(users);
@@ -42,7 +43,8 @@ router.get('/:id/:token', async (req, res) => {
     if(!decoded || decoded._id !== id || decoded.admin === true)  {
       return res.status(403).send('Invalid token');
     }     
-    
+    console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
+
     const user = await User.findById(req.params.id);
     if (!user) {
       return res.status(404).send('User with the given ID was not found');

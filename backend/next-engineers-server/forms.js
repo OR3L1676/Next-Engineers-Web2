@@ -22,6 +22,8 @@ router.get('/:token', async (req, res) => {
     if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
+        console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
+    
         const forms = await Form.find();
         res.send(forms);
     } catch (err) {
@@ -38,6 +40,8 @@ router.get('/:id/:token', async (req, res) => {
     if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
+        console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
+
         const form = await Form.findById(req.params.id);
         if (!form) {
             return res.status(404).send('Form with the given ID was not found');
