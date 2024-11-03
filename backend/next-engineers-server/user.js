@@ -24,8 +24,7 @@ const usersSchema = new mongoose.Schema({
       unique: true  // Ensure each Google user is unique
     },
     admin: {
-      type: Boolean,
-      required: true,
+      type: Boolean
     },
     createdAt: { 
       type: Date, 
@@ -48,7 +47,7 @@ const usersSchema = new mongoose.Schema({
       name: Joi.string().required(),
       picture: Joi.string().uri().allow(''), // Allow empty string and validate as URI if present
       sub: Joi.string().required(),
-      admin: Joi.boolean().required()
+      admin: Joi.boolean()
     });
     return schema.validate(req);
   }
