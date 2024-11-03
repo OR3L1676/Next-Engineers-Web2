@@ -88,7 +88,7 @@ router.post('/signup', async (req, res) => {
 
   } catch (err) {
     const errorMessages = Object.values(err.errors || {}).map(e => e.message);
-    res.status(400).send(errorMessages.join(', '));
+    res.status(400).send(errorMessages.join(', ') + "wtf happend");
   }
 });
 
