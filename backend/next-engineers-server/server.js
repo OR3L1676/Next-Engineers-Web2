@@ -18,14 +18,15 @@ mongoose.connect(dbURI)
 const allowedOrigins = ['https://next-engineers-web2.onrender.com'];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error('Not allowed by CORS'), false);
     }
+    return callback(null, true);
   },
-  credentials: true, 
+  credentials: true,
 }));
 
 // Middleware

@@ -57,42 +57,42 @@ router.get('/:id/:token', async (req, res) => {
 
 // Create a new user (POST)
 router.post('/signup', async (req, res) => {
-    // Validate the request body
-    const { error } = validateUser(req.body);
-    if (error) {
-      return res.status(400).send(error.details[0].message, " , validation failed");
-    }
+  // Validate the request body
+  const { error } = validateUser(req.body);
+  if (error) {
+    return res.status(400).send(`${error.details[0].message}, validation failed`);
+  }
   
-    // Check if the user already exists by email or sub
-    const existingUser = await User.findOne({ $or: [{ email: req.body.email }, { sub: req.body.sub }] });
-    if (existingUser) {
-      return res.status(400).send('User with this email or sub already exists');
-    }
+  // Check if the user already exists by email or sub
+  const existingUser = await User.findOne({ $or: [{ email: req.body.email }, { sub: req.body.sub }] });
+  if (existingUser) {
+    return res.status(400).send('User with this email or sub already exists');
+  }
   
-    // Create a new user
-    const user = new User({
-      email: req.body.email,
-      email_verified: req.body.email_verified || false,
-      given_name: req.body.given_name || '',
-      name: req.body.name,
-      picture: req.body.picture || '',
-      sub: req.body.sub,
-      admin: false
-    });
-  
-    try {
-      const savedUser = await user.save(); 
-      const token = jwtGeneration(savedUser.id, savedUser.email, savedUser.sub, savedUser.admin)
-      res.send({ user: savedUser, token: token }); 
-      console.log("Signup request body:", req.body);
-
-    } catch (err) {
-      const errorMessages = Object.values(err.errors || {}).map(e => e.message);
-      res.status(400).send(errorMessages.join(', '));
-    }
+  // Create a new user
+  const user = new User({
+    email: req.body.email,
+    email_verified: req.body.email_verified || false,
+    given_name: req.body.given_name || '',
+    name: req.body.name,
+    picture: req.body.picture || '',
+    sub: req.body.sub,
+    admin: false,
   });
+  
+  try {
+    const savedUser = await user.save(); 
+    const token = jwtGeneration(savedUser._id, savedUser.email, savedUser.sub, savedUser.admin);
+    res.status(201).send({ user: savedUser, token: token }); 
+    console.log("Signup request body:", req.body);
 
-  // Sign-in: Login an existing user
+  } catch (err) {
+    const errorMessages = Object.values(err.errors || {}).map(e => e.message);
+    res.status(400).send(errorMessages.join(', '));
+  }
+});
+
+// Sign-in: Login an existing user
 router.post('/signin', async (req, res) => {
   const { email, sub } = req.body;
 
@@ -102,8 +102,8 @@ router.post('/signin', async (req, res) => {
     return res.status(404).send('User not found');
   }
   
-  const token = jwtGeneration(existingUser.id, email, sub, existingUser.admin)
-  res.send({ user: existingUser, token: token }); 
+  const token = jwtGeneration(existingUser._id, email, sub, existingUser.admin);
+  res.status(200).send({ user: existingUser, token: token }); 
 
   console.log("Signin request body:", req.body);
 });
