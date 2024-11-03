@@ -13,8 +13,14 @@ const transporter = nodemailer.createTransport({
 });
 
 // Get all forms
-router.get('/', async (req, res) => {
+router.get('/:token', async (req, res) => {
     try {
+    const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._admin !== true)  {
+      return res.status(403).send('Invalid token');
+    }  
         const forms = await Form.find();
         res.send(forms);
     } catch (err) {
@@ -23,8 +29,14 @@ router.get('/', async (req, res) => {
 });
 
 // Get form by id
-router.get('/:id', async (req, res) => {
+router.get('/:id/:token', async (req, res) => {
     try {
+    const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._admin !== true)  {
+      return res.status(403).send('Invalid token');
+    }  
         const form = await Form.findById(req.params.id);
         if (!form) {
             return res.status(404).send('Form with the given ID was not found');

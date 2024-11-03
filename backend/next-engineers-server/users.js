@@ -80,7 +80,7 @@ router.post('/signup', async (req, res) => {
   
     try {
       const savedUser = await user.save(); 
-      const token = jwtGeneration(savedUser.id, savedUser.email, sub, savedUser.admin)
+      const token = jwtGeneration(savedUser.id, savedUser.email, savedUser.sub, savedUser.admin)
       res.send({ user: savedUser, token: token }); 
       console.log("Signup request body:", req.body);
 
@@ -117,7 +117,7 @@ router.put('/:id/:token', async (req, res) => {
   }
 
   jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
-    const decoded = jwt.verify(token, jwtSecret)
+  const decoded = jwt.verify(token, jwtSecret)
 
     if(!decoded || decoded._id !== id || decoded._admin === true)  {
       return res.status(403).send('Invalid token');
