@@ -5,18 +5,25 @@ const jwt = require('jsonwebtoken')
 const fs = require('fs'); // Import the fs module
 const path = require('path');
 
-function jwtGeneration(email, sub) {
+function jwtGeneration(id, email, sub, admin) {
   //JWT
-  const jwtSecretPath = '/etc/secrets/SECRET_KEY_JWT';
-  const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
+  const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
   // Generate JWT
-  const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
+  const token = jwt.sign({_id: id ,_email: email, _sub: sub, _admin: admin }, jwtSecret);
   return(token); 
 }
 
 // Get all users
-router.get('/', async (req, res) => {
+router.get('/:token', async (req, res) => {
+  const {token} = req.params;
   try {
+    const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._admin !== true)  {
+      return res.status(403).send('Invalid token');
+    }  
+
     const users = await User.find();
     res.send(users);
   } catch (err) {
@@ -25,8 +32,17 @@ router.get('/', async (req, res) => {
 });
 
 // Get a user by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id/:token', async (req, res) => {
+  const {id ,token} = req.params;
+
   try {
+    const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+      return res.status(403).send('Invalid token');
+    }     
+    
     const user = await User.findById(req.params.id);
     if (!user) {
       return res.status(404).send('User with the given ID was not found');
@@ -58,12 +74,14 @@ router.post('/signup', async (req, res) => {
       given_name: req.body.given_name || '',
       name: req.body.name,
       picture: req.body.picture || '',
-      sub: req.body.sub
+      sub: req.body.sub,
+      admin: false
     });
   
     try {
-      const savedUser = await user.save(); // Save the user instance
-      res.send(savedUser);
+      const savedUser = await user.save(); 
+      const token = jwtGeneration(savedUser.id, savedUser.email, sub, savedUser.admin)
+      res.send({ user: savedUser, token: token }); 
       console.log("Signup request body:", req.body);
 
     } catch (err) {
@@ -81,32 +99,29 @@ router.post('/signin', async (req, res) => {
   if (!existingUser) {
     return res.status(404).send('User not found');
   }
-
-  // If user exists, return user data (or a token in case of JWT-based auth)
   
-  
-  //JWT
-  // const jwtSecretPath = '/etc/secrets/SECRET_KEY_JWT';
-  // const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
-  // // Generate JWT
-  // const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
-  
-  
-  
-  const token = jwtGeneration(email, sub)
+  const token = jwtGeneration(existingUser.id, email, sub, existingUser.admin)
   res.send({ user: existingUser, token: token }); 
-  // res.send(res); 
+
   console.log("Signin request body:", req.body);
 });
   
 
 // Update a user (PUT)
-router.put('/:id', async (req, res) => {
+router.put('/:id/:token', async (req, res) => {
   // Validate the request body
+  const {id ,token} = req.params;
   const { error } = validateUser(req.body);
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
+
+  jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+      return res.status(403).send('Invalid token');
+    }     
 
   try {
     const updatedUser = await User.findByIdAndUpdate(
@@ -118,6 +133,7 @@ router.put('/:id', async (req, res) => {
         email_verified: req.body.email_verified,
         picture: req.body.picture,
         sub: req.body.sub,
+        admin: req.body.admin,
         updatedAt: Date.now()  // Update the updatedAt field
       },
       { new: true, runValidators: true }  // Return the updated document, enforce validation
@@ -134,8 +150,16 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a user (DELETE)
-router.delete('/:id', async (req, res) => {
+router.delete('/:id/:token', async (req, res) => {
+  const {id, token} = req.params;
   try {
+    const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
+    const decoded = jwt.verify(token, jwtSecret)
+
+    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+      return res.status(403).send('Invalid token');
+    }     
+
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
       return res.status(404).send('User with the given ID was not found');
