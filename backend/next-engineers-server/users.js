@@ -11,7 +11,7 @@ function jwtGeneration(email, sub) {
   const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
   // Generate JWT
   const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
-  return({ user: existingUser, token: token }); 
+  return(token); 
 }
 
 // Get all users
@@ -90,12 +90,12 @@ router.post('/signin', async (req, res) => {
   // const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
   // // Generate JWT
   // const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
-  // res.send({ user: existingUser, token: token }); 
-
-
   
-  const res = jwtGeneration(email, sub)
-  res.send(res); 
+  
+  
+  const token = jwtGeneration(email, sub)
+  res.send({ user: existingUser, token: token }); 
+  // res.send(res); 
   console.log("Signin request body:", req.body);
 });
   
