@@ -105,7 +105,7 @@ function LoginButton({ onConnectedUser }: Props) {
           });
         })
         .catch((err) => {          
-          console.log("Error - signin:", err.message);
+          console.log("Error - signin:", err);
           setIsConnectUser(false)
           setPremission(false)  
           toast({
