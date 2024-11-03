@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Form, validateForm } = require('./form');
 const nodemailer = require('nodemailer'); // Import nodemailer
+const jwt = require('jsonwebtoken')
 
 // Set up Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -18,7 +19,7 @@ router.get('/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._admin !== true)  {
+    if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
         const forms = await Form.find();
@@ -34,7 +35,7 @@ router.get('/:id/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._admin !== true)  {
+    if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
         const form = await Form.findById(req.params.id);

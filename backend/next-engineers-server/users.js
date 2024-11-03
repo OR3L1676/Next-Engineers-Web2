@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 const fs = require('fs'); // Import the fs module
 const path = require('path');
 
-function jwtGeneration(id, email, sub, admin) {
+function jwtGeneration(sId, sEmail, sSub, sAdmin) {
   //JWT
   const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
   // Generate JWT
-  const token = jwt.sign({_id: id ,_email: email, _sub: sub, _admin: admin }, jwtSecret);
+  const token = jwt.sign({_id: sId ,email: sEmail, sub: sSub, admin: sAdmin }, jwtSecret);
   return(token); 
 }
 
@@ -20,7 +20,7 @@ router.get('/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._admin !== true)  {
+    if(!decoded || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }  
 
@@ -39,7 +39,7 @@ router.get('/:id/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin === true)  {
       return res.status(403).send('Invalid token');
     }     
     
@@ -119,7 +119,7 @@ router.put('/:id/:token', async (req, res) => {
   jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
   const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin === true)  {
       return res.status(403).send('Invalid token');
     }     
 
@@ -156,7 +156,7 @@ router.delete('/:id/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded._admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin === true)  {
       return res.status(403).send('Invalid token');
     }     
 
