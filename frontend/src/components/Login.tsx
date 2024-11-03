@@ -108,6 +108,7 @@ function LoginButton({ onConnectedUser }: Props) {
           console.log("Error - signin:", err);
           setIsConnectUser(false)
           setPremission(false)  
+          localStorage.removeItem('accessToken')
           toast({
             title: "שגיאה התרחשה",
             description: err.response.data || "הייתה בעיה להתחבר לחשבון שלך",
