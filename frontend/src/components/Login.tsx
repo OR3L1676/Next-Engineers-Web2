@@ -72,7 +72,7 @@ function LoginButton({ onConnectedUser }: Props) {
           localStorage.removeItem('accessToken')
           toast({
             title: "שגיאה התרחשה",
-            description: err.response.data || "הייתה בעיה ביצירת החשבון שלך", /// רק כאן 1111111111111111111111
+            description: err.response.data || "הייתה בעיה ביצירת החשבון שלך",
             status: "error",
             duration: 9000,
             isClosable: true,
@@ -110,7 +110,7 @@ function LoginButton({ onConnectedUser }: Props) {
           setPremission(false)  
           toast({
             title: "שגיאה התרחשה",
-            description: "הייתה בעיה להתחבר לחשבון שלך",
+            description: err.response.data || "הייתה בעיה להתחבר לחשבון שלך",
             status: "error",
             duration: 9000,
             isClosable: true,
