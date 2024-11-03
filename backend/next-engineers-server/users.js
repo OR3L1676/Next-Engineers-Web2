@@ -41,7 +41,7 @@ router.get('/:id/:token', async (req, res) => {
     const decoded = jwt.verify(token, jwtSecret)
 
     if(!decoded || decoded._id !== id || decoded.admin !== true)  {
-      return res.status(403).send('Invalid token');
+      return res.status(403).send('Invalid token or ID');
     }     
     console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
 
@@ -60,7 +60,7 @@ router.post('/signup', async (req, res) => {
     // Validate the request body
     const { error } = validateUser(req.body);
     if (error) {
-      return res.status(400).send(error.details[0].message);
+      return res.status(400).send(error.details[0].message, " , validation failed");
     }
   
     // Check if the user already exists by email or sub
@@ -88,7 +88,7 @@ router.post('/signup', async (req, res) => {
 
     } catch (err) {
       const errorMessages = Object.values(err.errors || {}).map(e => e.message);
-      res.status(400).send(errorMessages.join(', '));
+      res.status(400).send(errorMessages.join(', '), " , catched error");
     }
   });
 
@@ -122,7 +122,7 @@ router.put('/:id/:token', async (req, res) => {
   const decoded = jwt.verify(token, jwtSecret)
 
     if(!decoded || decoded._id !== id || decoded.admin !== true)  {
-      return res.status(403).send('Invalid token');
+      return res.status(403).send('Invalid token or ID');
     }     
 
   try {
@@ -159,7 +159,7 @@ router.delete('/:id/:token', async (req, res) => {
     const decoded = jwt.verify(token, jwtSecret)
 
     if(!decoded || decoded._id !== id || decoded.admin !== true)  {
-      return res.status(403).send('Invalid token');
+      return res.status(403).send('Invalid token or ID');
     }     
 
     const user = await User.findByIdAndDelete(req.params.id);

@@ -38,7 +38,7 @@ router.get('/:id/:token', async (req, res) => {
     const decoded = jwt.verify(token, jwtSecret)
 
     if(!decoded || decoded.admin !== true)  {
-      return res.status(403).send('Invalid token');
+      return res.status(403).send('Invalid token or ID');
     }  
         console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
 
