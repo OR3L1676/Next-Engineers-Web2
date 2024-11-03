@@ -5,6 +5,15 @@ const jwt = require('jsonwebtoken')
 const fs = require('fs'); // Import the fs module
 const path = require('path');
 
+function jwtGeneration(email, sub) {
+  //JWT
+  const jwtSecretPath = '/etc/secrets/SECRET_KEY_JWT';
+  const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
+  // Generate JWT
+  const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
+  return({ user: existingUser, token: token }); 
+}
+
 // Get all users
 router.get('/', async (req, res) => {
   try {
@@ -74,15 +83,19 @@ router.post('/signin', async (req, res) => {
   }
 
   // If user exists, return user data (or a token in case of JWT-based auth)
+  
+  
   //JWT
-  const jwtSecretPath = '/etc/secrets/SECRET_KEY_JWT';
-  const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
+  // const jwtSecretPath = '/etc/secrets/SECRET_KEY_JWT';
+  // const jwtSecret = fs.readFileSync(jwtSecretPath, 'utf8').trim();
+  // // Generate JWT
+  // const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
+  // res.send({ user: existingUser, token: token }); 
 
-  // Generate JWT
-  const token = jwt.sign({ _email: email, _sub: sub }, jwtSecret);
 
-  res.send({ user: existingUser, token: token }); 
-  // res.send(existingUser); 
+  
+  const res = jwtGeneration(email, sub)
+  res.send(res); 
   console.log("Signin request body:", req.body);
 });
   
