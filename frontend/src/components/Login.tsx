@@ -66,7 +66,7 @@ function LoginButton({ onConnectedUser }: Props) {
           });
         })
         .catch((err) => {
-          console.log("Error - signup:", err.message);
+          console.log("Error - signup:", err);
           setIsConnectUser(false)
           setPremission(false)  
           localStorage.removeItem('accessToken')
