@@ -66,7 +66,7 @@ router.post('/signup', async (req, res) => {
   // Check if the user already exists by email or sub
   const existingUser = await User.findOne({ $or: [{ email: req.body.email }, { sub: req.body.sub }] });
   if (existingUser) {
-    return res.status(400).send('User with this email or sub already exists');
+    return res.status(400).send('כבר נרשמת לאתר, יש להתחבר');
   }
   
   // Create a new user
@@ -99,7 +99,7 @@ router.post('/signin', async (req, res) => {
   // Check if the user exists based on email or sub
   const existingUser = await User.findOne({ $or: [{ email }, { sub }] });
   if (!existingUser) {
-    return res.status(404).send('User not found');
+    return res.status(404).send('אין חשבון במערכת אנא הרשמו');
   }
   
   const token = jwtGeneration(existingUser._id, email, sub, existingUser.admin);
