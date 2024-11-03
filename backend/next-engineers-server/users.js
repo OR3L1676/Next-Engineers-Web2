@@ -40,7 +40,7 @@ router.get('/:id/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded.admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }     
     console.log("decoded: ", decoded); // ----------------------------------------------------- to delete after check
@@ -121,7 +121,7 @@ router.put('/:id/:token', async (req, res) => {
   jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
   const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded.admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }     
 
@@ -158,7 +158,7 @@ router.delete('/:id/:token', async (req, res) => {
     const jwtSecret = fs.readFileSync('/etc/secrets/SECRET_KEY_JWT', 'utf8').trim();
     const decoded = jwt.verify(token, jwtSecret)
 
-    if(!decoded || decoded._id !== id || decoded.admin === true)  {
+    if(!decoded || decoded._id !== id || decoded.admin !== true)  {
       return res.status(403).send('Invalid token');
     }     
 
