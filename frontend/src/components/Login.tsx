@@ -15,7 +15,7 @@ function LoginButton({ onConnectedUser }: Props) {
   );
   const { data, error } = useUserInfo(accessToken || "");
   const [premission, setPremission] = useState(false); 
-  const [isConnectUser, setIsConnectUser] = useState(false); //!!accessToken
+  const [isConnectUser, setIsConnectUser] = useState(!!accessToken); 
   const [connectReq, setConnectReq] = useState<string | "">();
   const toast = useToast();
   const dbURI = import.meta.env.MONGODB_URI; 
@@ -69,6 +69,7 @@ function LoginButton({ onConnectedUser }: Props) {
           console.log("Error - signup:", err.message);
           setIsConnectUser(false)
           setPremission(false)  
+          localStorage.removeItem('accessToken')
           toast({
             title: "שגיאה התרחשה",
             description: "הייתה בעיה ביצירת החשבון שלך",
