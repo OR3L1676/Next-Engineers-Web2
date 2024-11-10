@@ -21,6 +21,7 @@ interface Location {
 
 const Locations = () => {
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
+  const googleMapSize = useBreakpointValue({ base: "370px", md: "400px" });
   const locations: Location[] = locationsImport;
 
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
@@ -50,7 +51,11 @@ const Locations = () => {
       setZoom(7);
     }
   };
-
+  const mapContainerStyle = {
+    width: googleMapSize,  // use breakpoint value
+    height: googleMapSize,  // use breakpoint value
+  };
+  
   return (
     <Box
       h="100vh"
@@ -86,10 +91,7 @@ const Locations = () => {
         >
           <LoadScript googleMapsApiKey={googleMapApiKey}>
             <GoogleMap
-              mapContainerStyle={{
-                width: "400px",
-                height: "400px",
-              }}
+              mapContainerStyle={mapContainerStyle} // Correct usage
               center={center}
               zoom={zoom}
             >
@@ -144,7 +146,7 @@ const Locations = () => {
               ))}
             </Select>
           </Box>
-
+  
           {selectedLocation && (
             <Box textAlign="right" css={{ direction: "rtl" }} mt={4}>
               <Text fontSize="30px" mb={5} fontWeight="bold">
@@ -166,6 +168,6 @@ const Locations = () => {
       </Box>
     </Box>
   );
-};
+}
 
-export default Locations;
+  export default Locations;

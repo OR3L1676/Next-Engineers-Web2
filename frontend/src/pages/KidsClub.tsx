@@ -10,7 +10,13 @@ const KidsClub = () => {
     <>
       <Box pt={isLargeScreen ? "100px" : "80px"}>
         <KContainer backgroundInput="blue" heading="ממציאים בריבוע">
-          <KContent backgroundInput="blue"/>
+          <KContent backgroundInput="blue" isVideo={true}/>
+        </KContainer>
+        <KContainer backgroundInput="white" heading="הוראות הרכבה לדגמים">
+          <KContent backgroundInput="white" isModel={true}/>
+        </KContainer>
+        <KContainer backgroundInput="blue" heading="Super Steam - קומיקס">
+          <KContent backgroundInput="blue" isComics={true}/>
         </KContainer>
       </Box>
     </>

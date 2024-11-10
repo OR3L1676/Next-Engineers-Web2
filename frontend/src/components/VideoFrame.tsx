@@ -21,7 +21,6 @@ const VideoFrame = ({link} : Props) => {
 
   return (
     <>
-
       <iframe
         width={iframeWidth}
         height={iframeHeight}

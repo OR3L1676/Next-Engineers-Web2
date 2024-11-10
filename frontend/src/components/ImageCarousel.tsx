@@ -9,10 +9,11 @@ import {
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 interface Props {
-  images: string[];
+  images: string[],
+  isModel?: boolean,
 }
 
-const ImageCarousel = ({ images }: Props) => {
+const ImageCarousel = ({ images, isModel }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageWidth, setImageWidth] = useState(0);
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -35,7 +36,7 @@ const ImageCarousel = ({ images }: Props) => {
   const arrowSize = useBreakpointValue({ base: "sm", md: "md" });
 
   return (
-    <Box position="relative" maxW={"400px"} overflow="hidden">
+    <Box position="relative" maxW={isModel ? "" : "400px"} overflow="hidden">
       <IconButton
         icon={<FaArrowLeft />}
         onClick={prevSlide}
