@@ -15,7 +15,7 @@ mongoose.connect(dbURI)
   .catch((err) => console.log('Failed to connect MongoDB', err));
 
 // Enable CORS
-const allowedOrigins = ['https://next-engineers-web2.onrender.com'];
+const allowedOrigins = ['https://www.nextengineers.co.il','https://next-engineers-web2.onrender.com'];
 
 app.use(cors({
   origin: function (origin, callback) {
