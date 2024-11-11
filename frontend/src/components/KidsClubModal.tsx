@@ -31,7 +31,7 @@ function KidsClubModal({
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleKidsClubPass = (password: string) => {
-    const accessPassword = "1";
+    const accessPassword = import.meta.env.VITE_KIDS_CLUB_PASSWORD;
     if (password === accessPassword) {
       toast({
         title: "התחברת בהצלחה",
