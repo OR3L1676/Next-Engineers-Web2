@@ -7,7 +7,7 @@ interface Props {
 
 const ComicsFrame = ({comics}:Props) => {
     const iframeWidth = useBreakpointValue({
-      base: '360px', 
+      base: '100%px', 
       sm: '310px',
       md: '460px',
       lg: '580px', 

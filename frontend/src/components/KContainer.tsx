@@ -21,40 +21,39 @@ const KContainer = ({children, heading, backgroundInput}:Props) => {
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "repeat"
-  } : backgroundInput === "green" ? {
-    background: `linear-gradient(${backgroundColorGreen}, ${backgroundColorGreen}), url(${pattern})`,
+    } : backgroundInput === "green" ? {
+      background: `linear-gradient(${backgroundColorRed}, ${backgroundColorRed}), url(${pattern})`,
+      backgroundBlendMode: "overlay",
+      backgroundPosition: "center",
+      backgroundSize: "contain",
+      backgroundRepeat: "repeat"
+    } : backgroundInput === "red" ? {
+      background: `linear-gradient(${backgroundColorGreen}, ${backgroundColorGreen}), url(${pattern})`,
     backgroundBlendMode: "overlay",
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "repeat"
-  } : backgroundInput === "red" ? {
-    background: `linear-gradient(${backgroundColorRed}, ${backgroundColorRed}), url(${pattern})`,
-    backgroundBlendMode: "overlay",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "repeat"
-  } : backgroundInput === "white" ? {
-    background: `url(${pattern})`,
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "repeat",
-    bg: "gray.200"  // bg is used here for the default gray background color
-  } : {}
-
+    } : backgroundInput === "white" ? {
+      bg: "gray.200",
+      backgroundImage: `url(${pattern})`,
+      backgroundPosition: "center",
+      backgroundSize: "contain",
+      backgroundRepeat: "repeat"
+    } : ""
 
 
   return (
     <>
         <Box py={5} sx={backgroundC} h="100%" display="flex" flexDir="column" justifyContent="space-around">
           <Box>
-            <Heading textAlign="center" color={backgroundInput === "white" ? "black" : "white"}>{heading}</Heading>
+            <Heading textAlign="center" color={backgroundInput === "white" ? "black" : "white"} >{heading}</Heading>
           </Box>
             <Box display="flex" justifyContent="center" width="100%" maxW={isLargeScreen ? "1000px" : "100%"} minW="300px" margin="30px auto" px={isLargeScreen ? 10 : 0} >
               <Button color="blackAlpha.800" onClick={onOpen}>...להצגת התכנים</Button>
               <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
                 <ModalContent w="80vw" maxW="80vw" h="auto" maxH="auto" sx={backgroundC}>
-                  <ModalHeader fontSize="50px" fontWeight="bold" textAlign="center" color={backgroundInput === "white" ? "black" : "white"}>{heading}</ModalHeader>
+                  <ModalHeader fontSize={isLargeScreen ? "50px" : "32px"} fontWeight="bold" textAlign="center" color={backgroundInput === "white" ? "black" : "white"} >{heading}</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody>
                   <Box display="flex" justifyContent="center">

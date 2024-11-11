@@ -26,7 +26,8 @@ interface Props {
 
 
 const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
-
+  const isLargeScreen = useBreakpointValue({base: false ,sm: true, md: true})
+  
   const video1 = "https://www.youtube.com/embed/0AJAgzRWB3s";
   const video2 = "https://www.youtube.com/embed/06lVFgw1diU";
   const video3 = "https://www.youtube.com/embed/a_JLD2kPSqQ";
@@ -34,38 +35,39 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
   const video5 = "https://www.youtube.com/embed/grI7zEaBnFc";
   const video6 = "https://www.youtube.com/embed/_uHt3-zBlug";
 
-  
-  const text1 = `<span style="font-size: 30px; font-weight: bold;"> פרק 1 - ממציאים בריבוע - קסם מגנוס </span> 
+  const fontSizeText = isLargeScreen ? "30px" : "19px";
 
-  בפרק זה אביגיל ומרינל לומדות מהי בעיטת בננה, ואיך היא קשורה בכלל לאפקט פיזיקאלי שנקרא אפקט מגנוס ? 
+  const text1 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 1 - ממציאים בריבוע - קסם מגנוס </span> 
+
+  בפרק זה אביגיל ומרינל לומדות מהי בעיטת בננה, ואיך היא קשורה בכלל לאפקט פיזיקאלי שנקרא אפקט מגנוס? 
   
   לסיום הם מלמדות אותנו לייצר כוס מעופפת מדליקה שמיישמת את העקרון של אפקט מגנוס.`
   
-  const text2 = `<span style="font-size: 30px; font-weight: bold;"> פרק 2 - ממציאים בריבוע - סודות האנימציה </span> 
+  const text2 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 2 - ממציאים בריבוע - סודות האנימציה </span> 
 
 בפרק זה נלמד על  אנימציה,  אשליה חושית, והמשכיות הראייה,  ומה הקשר ביניהם.
 
 אביגיל ומרינל ילמדו אותנו כיצד לייצר מחומרים פשוטים שיש בבית, מכשיר מדליק שנקרא : תאומפטרופ, באמצעותו ניצור אנימציות פשוטות.`
   
-  const text3 = `<span style="font-size: 30px; font-weight: bold;"> פרק 3 - ממציאים בריבוע - סוד ההתמדה </span>
+  const text3 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 3 - ממציאים בריבוע - סוד ההתמדה </span>
 
 בפרק זה מרינל ואביגיל ונעמה לומדות על חוק ההתמדה, שהוא למעשה החוק ה 1 של ניוטון.
 
 בנוסף הם מבצעות מספר ניסויים מדליקים הקשורים לחוק ההתמדה.`
   
-  const text4 = `<span style="font-size: 30px; font-weight: bold;"> פרק 4 - ממציאים בריבוע - נפלאות הכוח הסיבובי </span>  
+  const text4 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 4 - ממציאים בריבוע - נפלאות הכוח הסיבובי </span>  
 
 בפרק זה אנו מארחים את פזית הבובה, אשר לומדת על כוח סיבובי מיוחד שנוצר בזמן סיבוב של חפצים - הכוח הצנטריפוגלי.
 
 בהמשך אנו עורכים ניסוי מיוחד ומגלים כיצד ניתן לסובב במעגלים, כוס מלאה מים הקשורה לחוט, מבלי שהמים ישפכו.`
   
-  const text5 = `<span style="font-size: 30px; font-weight: bold;"> פרק 5 - ממציאים בריבוע - סודות התאוצה </span>  
+  const text5 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 5 - ממציאים בריבוע - סודות התאוצה </span>  
 
 בפרק זה נלמד על  החוק השני של ניוטון. מה הקשר בין הכוח המופעל על הגוף, המסה שלו והתאוצה שלו. 
 
 מרינל ונעמה יערכו ניסוי פשוט מדליק, אשר ימחיש לנו את החוק השני של ניוטון.
 אתם מוזמנים לבצע אותו בבית.`
-  const text6 = `<span style="font-size: 30px; font-weight: bold;"> פרק 6 - ממציאים בריבוע - סוד הפעולה והתגובה </span>  
+  const text6 = `<span style="font-size: ${fontSizeText}; font-weight: bold;"> פרק 6 - ממציאים בריבוע - סוד הפעולה והתגובה </span>  
 
 בפרק זה נלמד על החוק השלישי של ניוטון. נבין מדוע אוויר המשוחרר מבלון מנופח גורם לבלון להתעופף בכיוון ההפוך לכיוון יציאת האוויר ? 
 
@@ -106,7 +108,6 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
     borderBottom: "10px solid #45D82F",
     borderLeft: "10px solid royalblue",
   };  
-  const isLargeScreen = useBreakpointValue({base: false ,sm: true, md: true})
   
   return (
     <>
@@ -117,7 +118,7 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
       {Videos[0].items.map((video, index)=> (
         <Box key={index} display="flex" flexDirection="column" css={{ direction: "rtl" }}>
           <Box display="inherit" justifyContent="right">
-            <Text color="white" whiteSpace="pre-line" css={{ direction: "rtl" }} textAlign="justify" maxW={{md: "100%", lg: "50vw"}} px={isLargeScreen ? 0 : "20px"} mb={8} dangerouslySetInnerHTML={{ __html: Videos[0].text[index] }}></Text>
+            <Text fontSize={isLargeScreen ? "" : "12px"} color="white" whiteSpace="pre-line" css={{ direction: "rtl" }} textAlign={isLargeScreen ? "justify" : "right"} maxW={{md: "100%", lg: "50vw"}} px={isLargeScreen ? 0 : "20px"} mb={8} dangerouslySetInnerHTML={{ __html: Videos[0].text[index] }}></Text>
           </Box>
           <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
             <VideoFrame link={video}/>
@@ -132,7 +133,7 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
       {Models.map((model, index)=> (
       <Box key={index}>
           <Box mb={10}>
-            <Heading color="white" textAlign="right">{model.text}</Heading>
+            <Heading fontSize={fontSizeText} color="white" textAlign="right">{model.text}</Heading>
           </Box>
           <Box borderRadius={20} mb="100px" overflow="hidden" style={customBorder}>
             <ModelFrame model={model.items}/>

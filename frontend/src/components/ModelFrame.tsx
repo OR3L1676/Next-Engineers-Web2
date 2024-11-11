@@ -15,7 +15,7 @@ const ModelFrame = ({model}:Props) => {
       });
     
       const iframeHeight = useBreakpointValue({
-        base: '280px', 
+        base: '100%', 
         sm: '310px',
         md: '460px',
         lg: '580px', 
