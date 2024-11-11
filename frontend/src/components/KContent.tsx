@@ -1,4 +1,4 @@
-import { Box, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
 import VideoFrame from './VideoFrame';
 import ModelFrame from './ModelFrame';
 import ComicsFrame from './ComicsFrame';
@@ -18,11 +18,12 @@ import comics2 from "../assets/kidsclub-src/comics1.jpg"
 import comics1 from "../assets/kidsclub-src/comics2.jpg"
 import comics3 from "../assets/kidsclub-src/comics3.jpg"
 interface Props {
-  backgroundInput: 'blue' | 'white'
+  backgroundInput: 'blue' | 'white' | "red" | "green"
   isVideo?: boolean,
   isModel?: boolean,
   isComics?: boolean,
 }
+
 
 const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
 
@@ -33,21 +34,77 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
   const video5 = "https://www.youtube.com/embed/grI7zEaBnFc";
   const video6 = "https://www.youtube.com/embed/_uHt3-zBlug";
 
+  
+  const text1 = `<span style="font-size: 30px; font-weight: bold;"> פרק 1 - ממציאים בריבוע - קסם מגנוס </span> 
+
+  בפרק זה אביגיל ומרינל לומדות מהי בעיטת בננה, ואיך היא קשורה בכלל לאפקט פיזיקאלי שנקרא אפקט מגנוס ? 
+  
+  לסיום הם מלמדות אותנו לייצר כוס מעופפת מדליקה שמיישמת את העקרון של אפקט מגנוס.`
+  
+  const text2 = `<span style="font-size: 30px; font-weight: bold;"> פרק 2 - ממציאים בריבוע - סודות האנימציה </span> 
+
+בפרק זה נלמד על  אנימציה,  אשליה חושית, והמשכיות הראייה,  ומה הקשר ביניהם.
+
+אביגיל ומרינל ילמדו אותנו כיצד לייצר מחומרים פשוטים שיש בבית, מכשיר מדליק שנקרא : תאומפטרופ, באמצעותו ניצור אנימציות פשוטות.`
+  
+  const text3 = `<span style="font-size: 30px; font-weight: bold;"> פרק 3 - ממציאים בריבוע - סוד ההתמדה </span>
+
+בפרק זה מרינל ואביגיל ונעמה לומדות על חוק ההתמדה, שהוא למעשה החוק ה 1 של ניוטון.
+
+בנוסף הם מבצעות מספר ניסויים מדליקים הקשורים לחוק ההתמדה.`
+  
+  const text4 = `<span style="font-size: 30px; font-weight: bold;"> פרק 4 - ממציאים בריבוע - נפלאות הכוח הסיבובי </span>  
+
+בפרק זה אנו מארחים את פזית הבובה, אשר לומדת על כוח סיבובי מיוחד שנוצר בזמן סיבוב של חפצים - הכוח הצנטריפוגלי.
+
+בהמשך אנו עורכים ניסוי מיוחד ומגלים כיצד ניתן לסובב במעגלים, כוס מלאה מים הקשורה לחוט, מבלי שהמים ישפכו.`
+  
+  const text5 = `<span style="font-size: 30px; font-weight: bold;"> פרק 5 - ממציאים בריבוע - סודות התאוצה </span>  
+
+בפרק זה נלמד על  החוק השני של ניוטון. מה הקשר בין הכוח המופעל על הגוף, המסה שלו והתאוצה שלו. 
+
+מרינל ונעמה יערכו ניסוי פשוט מדליק, אשר ימחיש לנו את החוק השני של ניוטון.
+אתם מוזמנים לבצע אותו בבית.`
+  const text6 = `<span style="font-size: 30px; font-weight: bold;"> פרק 6 - ממציאים בריבוע - סוד הפעולה והתגובה </span>  
+
+בפרק זה נלמד על החוק השלישי של ניוטון. נבין מדוע אוויר המשוחרר מבלון מנופח גורם לבלון להתעופף בכיוון ההפוך לכיוון יציאת האוויר ? 
+
+מרינל ונעמה יערכו ניסוי פשוט מדליק של רכבל בלון, אשר ימחיש לנו את החוק השלישי של ניוטון. אתם מוזמנים לבצע אותו בבית.`
+  
+  const Videos = [
+    {items: [video1, video2, video3, video4, video5, video6], text: [text1, text2, text3, text4, text5, text6]}
+  ]
   const Models = [
-    { items: [footBall1, footBall2, footBall3, footBall4], category: "football" },
-    { items: [patiphon1, patiphon2, patiphon3, patiphon4], category: "patiphon" },
-    { items: [pirate1, pirate2, pirate3, pirate4], category: "pirate" }
+    {
+      items: [footBall1, footBall2, footBall3, footBall4],
+      category: "football",
+      text: "דגם - כדורגל"
+    },
+    {
+      items: [patiphon1, patiphon2, patiphon3, patiphon4],
+      category: "patiphon",
+      text: "דגם - פטיפון"
+    },
+    {
+      items: [pirate1, pirate2, pirate3, pirate4],
+      category: "pirate",
+      text: "דגם - הפל את הפיראט"
+    }
   ];
 
   const Comics = [
-    { items: [comics1, comics2, comics3], category: "1" },
+    { 
+      items: [comics1, comics2, comics3], 
+      category: "1",
+      text: "פרק 1" 
+    },
   ];
 
   const customBorder = {
-    borderTop: "5px solid #FF5454",
-    borderRight: "5px solid #FEDB03",
-    borderBottom: "5px solid #45D82F",
-    borderLeft: "5px solid royalblue",
+    borderTop: "10px solid #FF5454",
+    borderRight: "10px solid #FEDB03",
+    borderBottom: "10px solid #45D82F",
+    borderLeft: "10px solid royalblue",
   };  
   const isLargeScreen = useBreakpointValue({base: false ,sm: true, md: true})
   
@@ -55,86 +112,48 @@ const KContent = ({backgroundInput, isVideo, isModel, isComics}:Props) => {
     <>
     <Box color={backgroundInput === 'blue' ? "white" : "black"} fontSize={{sm: "15px", md: "20px"}}>
     
-    {isVideo ? <Box>
-      <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 1 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
-        <VideoFrame link={video1}/>
-      </Box>
-    </Box>
+    {isVideo ? 
+     <Box>
+      {Videos[0].items.map((video, index)=> (
+        <Box key={index} display="flex" flexDirection="column" css={{ direction: "rtl" }}>
+          <Box display="inherit" justifyContent="right">
+            <Text color="white" whiteSpace="pre-line" css={{ direction: "rtl" }} textAlign="justify" maxW={{md: "100%", lg: "50vw"}} px={isLargeScreen ? 0 : "20px"} mb={8} dangerouslySetInnerHTML={{ __html: Videos[0].text[index] }}></Text>
+          </Box>
+          <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
+            <VideoFrame link={video}/>
+          </Box>
+        </Box>
+      ))}
 
-    <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 2 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
-        <VideoFrame link={video2}/>
-      </Box>
-    </Box>
-
-    <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 3 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}> 
-        <VideoFrame link={video3}/>
-      </Box>
-    </Box>
-    
-    <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 4 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
-        <VideoFrame link={video4}/>
-      </Box>
-    </Box>
-
-    <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 5 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box mb="75px" borderRadius={20} overflow="hidden" style={customBorder}>
-        <VideoFrame link={video5}/>
-      </Box>
-    </Box>
-
-    <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 6 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box borderRadius={20} overflow="hidden" style={customBorder}>
-        <VideoFrame link={video6}/>
-      </Box>
-    </Box>
+     
     </Box>
      : isModel ? 
      <Box display="flex" flexDir="column">
-      <Box borderRadius={20} mb="100px" overflow="hidden" style={customBorder}>
-        <ModelFrame model={Models.filter((model)=> model.category === "football")[0].items}/>
+      {Models.map((model, index)=> (
+      <Box key={index}>
+          <Box mb={10}>
+            <Heading color="white" textAlign="right">{model.text}</Heading>
+          </Box>
+          <Box borderRadius={20} mb="100px" overflow="hidden" style={customBorder}>
+            <ModelFrame model={model.items}/>
+          </Box>
       </Box>
-      <Box borderRadius={20} mb="100px" overflow="hidden" style={customBorder}>
-        <ModelFrame model={Models.filter((model)=> model.category === "pirate")[0].items}/>
-      </Box>
-      <Box borderRadius={20} overflow="hidden" style={customBorder}>
-        <ModelFrame model={Models.filter((model)=> model.category === "patiphon")[0].items}/>
-      </Box>
+      ))}
      </Box>
      : isComics ?
-     <Box>     
-      <Box display="flex" flexDirection="column" css={{ direction: "rtl" }}>
-      <Box display="inherit" justifyContent="right">
-        <Text textAlign="justify" maxW={isLargeScreen ? "40vw" : "100%"} px={isLargeScreen ? 0 : "20px"} mb={8}>פרק 6 - תיאור תיאור תיאור תיאור תיאור תיאור תיאור</Text>
-      </Box>
-      <Box borderRadius={20} overflow="hidden" style={customBorder}>
-      <ComicsFrame comics={Comics.filter((comics)=> comics.category === "1")[0].items}></ComicsFrame>
-      </Box>
+     <Box display="flex" flexDir="column">  
+     {Comics.map((comics, index)=> (
+      <Box key={index}>
+          <Box mb={10}>
+            <Heading color="white" textAlign="right">{comics.text}</Heading>
+          </Box>
+          <Box borderRadius={20} mb="100px" overflow="hidden" style={customBorder}>
+            <ComicsFrame comics={comics.items}/>
+          </Box>   
     </Box>
+    
+      ))}
      </Box>
-
-     
      : ""}
     </Box>
     

@@ -16,9 +16,9 @@ const ComicsFrame = ({comics}:Props) => {
 
     const iframeHeight = useBreakpointValue({
         base: '100%', 
-        sm: '426px',   
-        md: '640px',  
-        lg: '800px', 
+        sm: '100%',   
+        md: '100%',  
+        lg: '100%', 
       });
       
   return (
