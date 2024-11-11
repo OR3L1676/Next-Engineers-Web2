@@ -21,25 +21,25 @@ const KContainer = ({children, heading, backgroundInput}:Props) => {
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "repeat"
-    } : backgroundInput === "green" ? {
-      background: `linear-gradient(${backgroundColorRed}, ${backgroundColorRed}), url(${pattern})`,
-      backgroundBlendMode: "overlay",
-      backgroundPosition: "center",
-      backgroundSize: "contain",
-      backgroundRepeat: "repeat"
-    } : backgroundInput === "red" ? {
-      background: `linear-gradient(${backgroundColorGreen}, ${backgroundColorGreen}), url(${pattern})`,
+  } : backgroundInput === "green" ? {
+    background: `linear-gradient(${backgroundColorGreen}, ${backgroundColorGreen}), url(${pattern})`,
     backgroundBlendMode: "overlay",
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "repeat"
-    } : backgroundInput === "white" ? {
-      bg: "gray.200",
-      backgroundImage: `url(${pattern})`,
-      backgroundPosition: "center",
-      backgroundSize: "contain",
-      backgroundRepeat: "repeat"
-    } : ""
+  } : backgroundInput === "red" ? {
+    background: `linear-gradient(${backgroundColorRed}, ${backgroundColorRed}), url(${pattern})`,
+    backgroundBlendMode: "overlay",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "repeat"
+  } : backgroundInput === "white" ? {
+    background: `url(${pattern})`,
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "repeat",
+    bg: "gray.200"  // bg is used here for the default gray background color
+  } : {}
 
 
   return (
