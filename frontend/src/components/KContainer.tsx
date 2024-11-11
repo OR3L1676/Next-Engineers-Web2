@@ -48,11 +48,11 @@ const KContainer = ({children, heading, backgroundInput}:Props) => {
           <Box>
             <Heading textAlign="center" color={backgroundInput === "white" ? "black" : "white"} >{heading}</Heading>
           </Box>
-            <Box display="flex" justifyContent="center" width="100%" maxW={isLargeScreen ? "1000px" : "100%"} minW="300px" margin="30px auto" px={isLargeScreen ? 10 : 0} >
+            <Box display="flex" justifyContent="center" width="100%" margin="30px auto" px={isLargeScreen ? 10 : 0} >
               <Button color="blackAlpha.800" onClick={onOpen}>...להצגת התכנים</Button>
               <Modal onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
-                <ModalContent w="80vw" maxW="80vw" h="auto" maxH="auto" sx={backgroundC}>
+                <ModalContent w={isLargeScreen ? "80vw" : "90vw"} maxW={isLargeScreen ? "80vw" : "90vw"} h="auto" maxH="auto" sx={backgroundC}>
                   <ModalHeader fontSize={isLargeScreen ? "50px" : "32px"} fontWeight="bold" textAlign="center" color={backgroundInput === "white" ? "black" : "white"} >{heading}</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody>

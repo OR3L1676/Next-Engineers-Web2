@@ -56,6 +56,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
     };
   }, [isConnectKidsClub, isConnectUser]);
 
+  
   return (
     <Box
       bg="gray.100"
@@ -229,8 +230,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
                   to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
                   onClick={ () => {
+                    if (isOpen) {
+                      onClose(); 
+                    }
                     if (!isConnectKidsClub) setIsMOpen(true);
-                    isOpen ? onClose : onOpen
                   }}
                 >
                   מועדון הילדים
