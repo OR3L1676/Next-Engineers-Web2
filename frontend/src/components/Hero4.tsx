@@ -33,7 +33,7 @@ const Hero4 = () => {
           borderBottom="#FEDB03 20px double"
           pb="50px"
         >
-          <Image src={image} maxW="400px" borderRadius="20px" />
+          <Image alt="מהנדסי הדור הבא ילדים מצולמים נהנים בחוגים" src={image} maxW="400px" borderRadius="20px" />
           <VStack
             minW="280px"
             maxW="700px"

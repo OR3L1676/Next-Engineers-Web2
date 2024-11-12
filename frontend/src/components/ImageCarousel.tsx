@@ -58,7 +58,7 @@ const ImageCarousel = ({ images, isModel }: Props) => {
             <Image
               ref={index === currentIndex ? imageRef : null}
               src={image}
-              alt={`Slide ${index}`}
+              alt={`מהנדסי הדור הבא צייוד לזכיינים, דגמים להרכבה, קומיקס, סרטוני לימוד ${index}`}
               width="100%"
               height="auto"
             />

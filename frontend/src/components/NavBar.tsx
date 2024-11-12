@@ -154,7 +154,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
           >
             בית
           </Button>
-          <Image src={logo} width={"220px"} />
+          <Image src={logo} alt="מהנדסי הדור הבא לוגו" width={"220px"} />
         </HStack>
       </Flex>
 

@@ -55,7 +55,7 @@ const AboutUs = () => {
             src={image1}
             boxSize="100%"
             objectFit="cover"
-            alt="Children working on a STEAM project"
+            alt="מהנדסי הדור הבא ילדים נהנים בחוגים ולומדים מדעים"
           />
         </Box>
       </HStack>

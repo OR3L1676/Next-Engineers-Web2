@@ -55,6 +55,7 @@ const ContactUsFooter = () => {
       {isLargeScreen && (
         <Image
           src={image}
+          alt="מהנדסי הדור הבא ילדים נהנים בחוג"
           flexShrink={1}
           flex="1"
           maxW="50%"

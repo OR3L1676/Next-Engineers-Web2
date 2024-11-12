@@ -65,6 +65,7 @@ const Vcard = ({
             ) : (
               <Image
                 src={image}
+                alt="מהנדסי הדור הבא ילדים משחקים נהנים ולומדים בחוגים"
                 objectFit="cover"
                 w={isLargeScreen ? "100%" : "100%"}
                 h={isLargeScreen ? "300px" : "auto"}

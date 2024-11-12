@@ -13,7 +13,7 @@ const Hero1 = () => {
         justifyContent="right"
       >
         <VStack align="end">
-          <Image src={logo} width={"400px"}></Image>
+          <Image src={logo} alt="מהנדסי הדור הבא לוגו" width={"400px"}></Image>
           <Text fontSize="xl" mb={8} pr="10px">
             משהו משהו משהו משהו משהו משהו משהו משהו משהו משהו משהו משהו משהו
             משהו משהו

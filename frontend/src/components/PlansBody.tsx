@@ -68,6 +68,7 @@ backgroundImage={`url(${programImage})`}
                 w={isLargeScreen ? "auto" : "auto"}
                 h={isLargeScreen ? "250px" : "100px"}
                 src={programLogo}
+                alt="מהנדסי הדור הבא לוגו"
               />
               <VStack w="100%" alignItems="flex-end">
                 <Heading

@@ -31,7 +31,7 @@ const FTcard = ({ image, heading, body, backgroundColor }: Props) => {
         pt={5}
       >
         <CardHeader display="flex" justifyContent="center">
-          <Image src={image} boxSize={20} borderRadius="full" />
+          <Image src={image} alt="מהנדסי הדור הבא ילדים לומדים ונהנים בחוגים" boxSize={20} borderRadius="full" />
         </CardHeader>
         <CardBody pt={0} color={backgroundColor === "red" ? "white" : "black"}>
           <Heading

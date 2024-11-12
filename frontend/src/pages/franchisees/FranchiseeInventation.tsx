@@ -16,6 +16,7 @@ const FranchiseeInventation = () => {
       <Box flexShrink="2">
         <Image
           src={image1}
+          alt="מהנדסי הדור הבא לקוחות מרוצים"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
