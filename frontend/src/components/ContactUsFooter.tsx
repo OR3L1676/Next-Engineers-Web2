@@ -48,7 +48,7 @@ const ContactUsFooter = () => {
             color="#3AB9FF"
             whiteSpace="pre-line"
           >{`רשת מהנדסי הדור הבא
-  מייל: nextengineersglobal@gmail.com`}</Text>
+  מייל: nextengineers@gmail.com`}</Text>
         </Box>
         <ContactUsForm />
       </Box>

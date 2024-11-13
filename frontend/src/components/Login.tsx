@@ -48,11 +48,9 @@ function LoginButton({ onConnectedUser }: Props) {
           withCredentials: true
         })
         .then((res) => {
-          // //token section & check
+          // //token section
           const {user, token} = res.data 
-          console.log("Token: ", token)
-          console.log("User Created Successfully", user);
-          // //token section & check
+          // //token section 
 
           localStorage.setItem("JwtToken", token); 
           setIsConnectUser(true);
@@ -87,11 +85,9 @@ function LoginButton({ onConnectedUser }: Props) {
           withCredentials: true
         })
         .then((res) => {
-          // //token section & check
+          // //token section
           const {user, token} = res.data
-          console.log("Token: ", token)
-          console.log("User Logged in Successfully", user); 
-          // //token section & check  
+          // //token section
 
           localStorage.setItem("JwtToken", token); 
           setIsConnectUser(true);
@@ -116,9 +112,6 @@ function LoginButton({ onConnectedUser }: Props) {
             duration: 9000,
             isClosable: true,
           });
-        }).finally(()=> {
-          console.log("finnaly check - is isConnectUser",isConnectUser);
-          console.log("finnaly check - premission",premission);
         })
   }
   }, [data, toast]);
