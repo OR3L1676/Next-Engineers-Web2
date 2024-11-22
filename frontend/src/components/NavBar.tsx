@@ -29,6 +29,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
   const [isConnectKidsClub, setIsConnectKidsClub] = useState(false);
   const [isMOpen, setIsMOpen] = useState(false);
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0});
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 0);
@@ -111,6 +115,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             fontSize={17}
             as={RoutLink}
             to="AboutUs"
+            onClick={handleScrollToTop}
           >
             קצת עלינו
           </Button>
@@ -121,6 +126,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             fontSize={17}
             as={RoutLink}
             to="Locations"
+            onClick={handleScrollToTop}
           >
             סניפים
           </Button>
@@ -131,6 +137,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             fontSize={17}
             as={RoutLink}
             to="Franchisees"
+            onClick={handleScrollToTop}
           >
             זכיינים
           </Button>
@@ -141,6 +148,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             fontSize={17}
             as={RoutLink}
             to="Plans"
+            onClick={handleScrollToTop}
           >
             תוכניות
           </Button>
@@ -151,6 +159,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             fontSize={17}
             as={RoutLink}
             to="/"
+            onClick={handleScrollToTop}
           >
             בית
           </Button>
@@ -169,8 +178,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/"
-                  onClick={isOpen ? onClose : onOpen}
-                >
+                  onClick={() => { 
+                    isOpen ? onClose() : onOpen(); 
+                    handleScrollToTop();
+                  }}                >
                   בית
                 </Link>
               </ListItem>
@@ -181,8 +192,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Plans"
-                  onClick={isOpen ? onClose : onOpen}
-                >
+                  onClick={() => { 
+                    isOpen ? onClose() : onOpen(); 
+                    handleScrollToTop();
+                  }}                >
                   תוכניות
                 </Link>
               </ListItem>
@@ -193,8 +206,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Locations"
-                  onClick={isOpen ? onClose : onOpen}
-                >
+                  onClick={() => { 
+                    isOpen ? onClose() : onOpen(); 
+                    handleScrollToTop();
+                  }}                >
                   סניפים
                 </Link>
               </ListItem>
@@ -205,8 +220,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Franchisees"
-                  onClick={isOpen ? onClose : onOpen}
-                >
+                  onClick={() => { 
+                    isOpen ? onClose() : onOpen(); 
+                    handleScrollToTop();
+                  }}                >
                   זכיינים
                 </Link>
               </ListItem>
@@ -217,8 +234,10 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="AboutUs"
-                  onClick={isOpen ? onClose : onOpen}
-                >
+                  onClick={() => { 
+                    isOpen ? onClose() : onOpen(); 
+                    handleScrollToTop();
+                  }}                >
                   קצת עלינו
                 </Link>
               </ListItem>
