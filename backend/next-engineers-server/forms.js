@@ -114,7 +114,7 @@ router.post('/', async (req, res) => {
          // Send email with form data
          await transporter.sendMail({
             from: 'next.engineers.post@gmail.com', // Sender address
-            to: 'next.engi@gmail.com', // List of recipients
+            to: 'Nextengineers@gmail.com', // List of recipients
             subject: 'יצירת קשר - מהנדסי הדור הבא', // Subject line
             html: `
             <div style="direction: rtl; font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
@@ -150,6 +150,47 @@ router.post('/', async (req, res) => {
             </div>
             `, // HTML body
         });
+
+         // Send email with form data
+         await transporter.sendMail({
+            from: 'next.engineers.post@gmail.com', // Sender address
+            to: 'nextengi.office@gmail.com', // List of recipients
+            subject: 'יצירת קשר - מהנדסי הדור הבא', // Subject line
+            html: `
+            <div style="direction: rtl; font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
+                <h2 style="color: #4CAF50; text-align: center;">יצירת קשר חדש - מהנדסי הדור הבא</h2>
+                <p>הודעה חדשה מהאתר נקלטה בהצלחה:</p>
+                <table style="width: 100%; margin: 20px 0; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">שם פרטי:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.firstName}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">שם משפחה:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.lastName}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">טלפון:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.phone}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">מייל:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.email}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">כתובת מגורים:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.address}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">הודעה:</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #ddd;">${form.message}</td>
+                    </tr>
+                </table>
+                <p style="text-align: center; color: #999;">© כל הזכויות שמורות למהנדסי הדור הבא</p>
+            </div>
+            `, // HTML body
+        });
+        
         
 
         res.send(savedForm);
