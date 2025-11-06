@@ -155,7 +155,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             to="Franchisees"
             onClick={handleScrollToTop}
           >
-            זכיינים
+            זכיינות חינוכית
           </Button>
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
@@ -244,7 +244,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                     handleScrollToTop();
                   }}
                 >
-                  זכיינים
+                  זכיינות חינוכית
                 </Link>
               </ListItem>
               <ListItem>
