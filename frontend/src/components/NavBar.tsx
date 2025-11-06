@@ -183,7 +183,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} endingHeight="280px" animateOpacity>
+      <Collapse in={isOpen} endingHeight="310px" animateOpacity>
         <Box pb={4} display={{ md: "none" }} textAlign="end">
           <Box ml="auto">
             <List as="nav" spacing={4}>
@@ -274,7 +274,24 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                     handleScrollToTop();
                   }}
                 >
-                  מהנדסים אונליין
+                  <Button
+                    marginBottom={"15px"}
+                    // _hover={{ bg: "#ffa500", color: "white" }}
+                    colorScheme="yellow"
+                    leftIcon={
+                      <Tag colorScheme="orange" fontWeight={600}>
+                        חדש
+                      </Tag>
+                    }
+                    iconSpacing={2.5}
+                    color="#462e00ff"
+                    fontSize={17}
+                    as={RoutLink}
+                    to="https://www.nextengineers.com/online-practice"
+                    onClick={handleScrollToTop}
+                  >
+                    מהנדסים אונליין
+                  </Button>
                 </Link>
               </ListItem>
               <ListItem>
