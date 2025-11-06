@@ -11,6 +11,7 @@ import {
   ListItem,
   Image,
   Collapse,
+  Tag,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import logo from "../assets/logos/RGB לדיגיטל - לוגו פרוס בעברית-01.png";
@@ -30,7 +31,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
   const [isMOpen, setIsMOpen] = useState(false);
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   };
 
   useEffect(() => {
@@ -60,7 +61,6 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
     };
   }, [isConnectKidsClub, isConnectUser]);
 
-  
   return (
     <Box
       bg="gray.100"
@@ -107,7 +107,23 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
               />
             </Box>
           )}
-
+          <Button
+            _hover={{ bg: "#ffa500", color: "white" }}
+            variant="ghost"
+            leftIcon={
+              <Tag colorScheme="orange" fontWeight={600}>
+                חדש
+              </Tag>
+            }
+            iconSpacing={2.5}
+            color="#ffa500"
+            fontSize={17}
+            as={RoutLink}
+            to="https://www.nextengineers.com/online-practice"
+            onClick={handleScrollToTop}
+          >
+            מהנדסים אונליין
+          </Button>
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
             variant="ghost"
@@ -167,7 +183,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} endingHeight="230px" animateOpacity>
+      <Collapse in={isOpen} endingHeight="280px" animateOpacity>
         <Box pb={4} display={{ md: "none" }} textAlign="end">
           <Box ml="auto">
             <List as="nav" spacing={4}>
@@ -178,10 +194,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   בית
                 </Link>
               </ListItem>
@@ -192,10 +209,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Plans"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   תוכניות
                 </Link>
               </ListItem>
@@ -206,10 +224,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Locations"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   סניפים
                 </Link>
               </ListItem>
@@ -220,10 +239,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Franchisees"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   זכיינים
                 </Link>
               </ListItem>
@@ -234,11 +254,27 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="AboutUs"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   קצת עלינו
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  borderBottom="1px solid grey"
+                  display="block"
+                  _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="https://www.nextengineers.com/online-practice"
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
+                    handleScrollToTop();
+                  }}
+                >
+                  מהנדסים אונליין
                 </Link>
               </ListItem>
               <ListItem>
@@ -248,9 +284,9 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
                   to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
-                  onClick={ () => {
+                  onClick={() => {
                     if (isOpen) {
-                      onClose(); 
+                      onClose();
                     }
                     if (!isConnectKidsClub) setIsMOpen(true);
                   }}
