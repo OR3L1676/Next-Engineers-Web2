@@ -30,7 +30,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
   const [isMOpen, setIsMOpen] = useState(false);
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   };
 
   useEffect(() => {
@@ -60,7 +60,6 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
     };
   }, [isConnectKidsClub, isConnectUser]);
 
-  
   return (
     <Box
       bg="gray.100"
@@ -178,10 +177,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   בית
                 </Link>
               </ListItem>
@@ -192,10 +192,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Plans"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   תוכניות
                 </Link>
               </ListItem>
@@ -206,10 +207,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Locations"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   סניפים
                 </Link>
               </ListItem>
@@ -220,10 +222,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="/Franchisees"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   זכיינים
                 </Link>
               </ListItem>
@@ -234,10 +237,11 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={RoutLink}
                   to="AboutUs"
-                  onClick={() => { 
-                    isOpen ? onClose() : onOpen(); 
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
                     handleScrollToTop();
-                  }}                >
+                  }}
+                >
                   קצת עלינו
                 </Link>
               </ListItem>
@@ -248,9 +252,9 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   _hover={{ textDecoration: "none" }}
                   as={isConnectKidsClub ? RoutLink : undefined} // Conditionally link only if connected to Kids Club
                   to={isConnectKidsClub ? "KidsClub" : undefined} // Navigate only if connected to Kids Club
-                  onClick={ () => {
+                  onClick={() => {
                     if (isOpen) {
-                      onClose(); 
+                      onClose();
                     }
                     if (!isConnectKidsClub) setIsMOpen(true);
                   }}
