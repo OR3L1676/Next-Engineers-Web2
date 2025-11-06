@@ -11,6 +11,7 @@ import {
   ListItem,
   Image,
   Collapse,
+  Tag,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import logo from "../assets/logos/RGB לדיגיטל - לוגו פרוס בעברית-01.png";
@@ -106,7 +107,23 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
               />
             </Box>
           )}
-
+          <Button
+            _hover={{ bg: "#ffa500", color: "white" }}
+            variant="ghost"
+            leftIcon={
+              <Tag colorScheme="orange" fontWeight={600}>
+                חדש
+              </Tag>
+            }
+            iconSpacing={2.5}
+            color="#ffa500"
+            fontSize={17}
+            as={RoutLink}
+            to="https://www.nextengineers.com/online-practice"
+            onClick={handleScrollToTop}
+          >
+            מהנדסים אונליין
+          </Button>
           <Button
             _hover={{ bg: "skyblue", color: "white" }}
             variant="ghost"
@@ -166,7 +183,7 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
         </HStack>
       </Flex>
 
-      <Collapse in={isOpen} endingHeight="230px" animateOpacity>
+      <Collapse in={isOpen} endingHeight="280px" animateOpacity>
         <Box pb={4} display={{ md: "none" }} textAlign="end">
           <Box ml="auto">
             <List as="nav" spacing={4}>
@@ -243,6 +260,21 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   }}
                 >
                   קצת עלינו
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  borderBottom="1px solid grey"
+                  display="block"
+                  _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="https://www.nextengineers.com/online-practice"
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
+                    handleScrollToTop();
+                  }}
+                >
+                  מהנדסים אונליין
                 </Link>
               </ListItem>
               <ListItem>
