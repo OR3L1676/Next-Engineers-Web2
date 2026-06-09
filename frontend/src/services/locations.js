@@ -6,7 +6,7 @@ const locations = [
     mail: "liordashko@gmail.com",
     lat: 31.7683,
     lng: 35.2137,
-    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y", 
+    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const locations = [
     mail: "מהדי: mahdi.decart@gmail.com, עסאם: isam.decart@gmail.com",
     lat: 31.8133,
     lng: 35.2425,
-    placeId: "ChIJ6y7kBFdiMRAREq9jDV-Ub9Y", 
+    placeId: "ChIJ6y7kBFdiMRAREq9jDV-Ub9Y",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const locations = [
     mail: "nextengi.bakat@gmail.com, bosenaward@gmail.com",
     lat: 32.3151,
     lng: 35.0424,
-    placeId: "ChIJUyyU-Nt5FxURrxHpyZTUX8c", 
+    placeId: "ChIJUyyU-Nt5FxURrxHpyZTUX8c",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const locations = [
     mail: "lulu8126@gmail.com",
     lat: 32.2837,
     lng: 35.0377,
-    placeId: "ChIJt8SyWRw1NRUR1cA7oaDJaaE", 
+    placeId: "ChIJt8SyWRw1NRUR1cA7oaDJaaE",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const locations = [
     mail: "ahmad@wiseinfo.biz",
     lat: 32.6996,
     lng: 35.3035,
-    placeId: "ChIJvVQH9F8CNRUROb6F4wP8Dzc", 
+    placeId: "ChIJvVQH9F8CNRUROb6F4wP8Dzc",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const locations = [
     mail: "moaadsabtan@gmail.com",
     lat: 32.8522,
     lng: 35.1833,
-    placeId: "ChIJRb8NsQz9NxUR3hEU3Ttt8AI", 
+    placeId: "ChIJRb8NsQz9NxUR3hEU3Ttt8AI",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const locations = [
     mail: "hbaishlubna@gmail.com",
     lat: 32.9634,
     lng: 35.3128,
-    placeId: "ChIJJfjHTx2fNBURFoXBXc00Dk8", 
+    placeId: "ChIJJfjHTx2fNBURFoXBXc00Dk8",
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const locations = [
     mail: "ash1975majd@gmail.com",
     lat: 32.9184,
     lng: 35.2907,
-    placeId: "ChIJg8yHg23ZNBURQuwVMIurM6o", 
+    placeId: "ChIJg8yHg23ZNBURQuwVMIurM6o",
   },
   {
     id: 9,
@@ -78,16 +78,16 @@ const locations = [
     mail: "lareen.for.studying@gmail.com",
     lat: 32.794,
     lng: 34.9896,
-    placeId: "ChIJQwTTDeoLHRUR_7YlJ3t7SUw", 
+    placeId: "ChIJQwTTDeoLHRUR_7YlJ3t7SUw",
   },
   {
     id: 10,
-    locationName: 'צפון המשולש : מגזר ערבי בלבד (ואדי עארה)',
+    locationName: "צפון המשולש : מגזר ערבי בלבד (ואדי עארה)",
     name: "עביר יונס",
     mail: "lareen.for.studying@gmail.com",
     lat: 32.5035,
     lng: 35.0195,
-    placeId: "ChIJS4K47Sx1NRURwtZayaxOlnY", 
+    placeId: "ChIJS4K47Sx1NRURwtZayaxOlnY",
   },
   {
     id: 11,
@@ -96,16 +96,16 @@ const locations = [
     mail: "ishosberger@gmail.com",
     lat: 32.1749,
     lng: 34.9075,
-    placeId: "ChIJW3pUk19OHRURl67Z7s1AoZc", 
+    placeId: "ChIJW3pUk19OHRURl67Z7s1AoZc",
   },
   {
     id: 12,
-    locationName: 'קריית אונו והסביבה : מגזר יהודי רק לחוגים ולא בבתי הספר',
+    locationName: "קריית אונו והסביבה : מגזר יהודי רק לחוגים ולא בבתי הספר",
     name: "דן לרנר",
     mail: "danlerner@walla.com",
     lat: 32.0506,
     lng: 34.8617,
-    placeId: "ChIJ8VKn9dRLHRURri70zHsPOMU", 
+    placeId: "ChIJ8VKn9dRLHRURri70zHsPOMU",
   },
   {
     id: 13,
@@ -114,7 +114,7 @@ const locations = [
     mail: "avihutagel@gmail.com",
     lat: 32.6793,
     lng: 35.2441,
-    placeId: "ChIJz9MlbvXBMBURo7yRoYogAF8", 
+    placeId: "ChIJz9MlbvXBMBURo7yRoYogAF8",
   },
   {
     id: 14,
@@ -123,7 +123,16 @@ const locations = [
     mail: "Nextengi.harish@gmail.com",
     lat: 32.4756,
     lng: 34.9753,
-    placeId: "ChIJ9XyFwSx0NRURrDCICoVoQdE", 
+    placeId: "ChIJ9XyFwSx0NRURrDCICoVoQdE",
+  },
+  {
+    id: 16,
+    locationName: "רמת השרון: מגזר יהודי",
+    name: "רן ויפית בלילה",
+    mail: "Nextengi.rsharon@gmail.com",
+    lat: 32.13839656938242,
+    lng: 34.83756282168871,
+    placeId: "ChIJ77wNHeFPHRURQLg-Y8p6n7k",
   },
   {
     id: 15,
@@ -132,17 +141,9 @@ const locations = [
     mail: "ohanagal111@gmail.com",
     lat: 32.084,
     lng: 34.8872,
-    placeId: "ChIJy1ZLNJxOHRURmPH3abDoPp8", 
+    placeId: "ChIJy1ZLNJxOHRURmPH3abDoPp8",
   },
-  {
-    id: 16,
-    locationName: "באר שבע: מגזר יהודי",
-    name: "בנימין שוקרון",
-    mail: "nextengi.rosh@gmail.com",
-    lat: 31.252,
-    lng: 34.7915,
-    placeId: "ChIJq8xq2MM0AhURlXDiH0Whj8E", 
-  },
+
   {
     id: 17,
     locationName: "נהריה ועכו: מגזר יהודי",
@@ -150,7 +151,7 @@ const locations = [
     mail: "nextengi.galilm@gmail.com",
     lat: 33.0079,
     lng: 35.0945,
-    placeId: "ChIJ0y_wAYfXMBURTwTz08OPgtY", 
+    placeId: "ChIJ0y_wAYfXMBURTwTz08OPgtY",
   },
   {
     id: 18,
@@ -159,7 +160,7 @@ const locations = [
     mail: "nextengi.ashkelon@gmail.com",
     lat: 31.6688,
     lng: 34.5743,
-    placeId: "ChIJWSv1zttkAhUR32ZryYRZz98", 
+    placeId: "ChIJWSv1zttkAhUR32ZryYRZz98",
   },
   {
     id: 19,
@@ -168,7 +169,7 @@ const locations = [
     mail: "yehudavaknin8@gmail.com",
     lat: 32.1049,
     lng: 35.1809,
-    placeId: "ChIJdWZw2PlMAxURVb2jZjVXJvA", 
+    placeId: "ChIJdWZw2PlMAxURVb2jZjVXJvA",
   },
   {
     id: 20,
@@ -177,7 +178,7 @@ const locations = [
     mail: "nextengi.shomron@gmail.com",
     lat: 32.434,
     lng: 34.9195,
-    placeId: "ChIJN_IkTwh0NRURkKvDpk0pXvc", 
+    placeId: "ChIJN_IkTwh0NRURkKvDpk0pXvc",
   },
   {
     id: 21,
@@ -186,7 +187,7 @@ const locations = [
     mail: "adielb@gmail.com",
     lat: 31.8014,
     lng: 34.6435,
-    placeId: "ChIJb1IQTDVRAhURowQ15v-XY6U", 
+    placeId: "ChIJb1IQTDVRAhURowQ15v-XY6U",
   },
   {
     id: 22,
@@ -195,7 +196,7 @@ const locations = [
     mail: "ozidan@013net.net",
     lat: 31.8948,
     lng: 34.8113,
-    placeId: "ChIJHSnP8zlLHRURddOKDr7KAYs", 
+    placeId: "ChIJHSnP8zlLHRURddOKDr7KAYs",
   },
   {
     id: 23,
@@ -204,7 +205,7 @@ const locations = [
     mail: "itzhakovad@gmail.com",
     lat: 31.972,
     lng: 34.7925,
-    placeId: "ChIJNc5OfAFKHRURoU6Cf44H5Zc", 
+    placeId: "ChIJNc5OfAFKHRURoU6Cf44H5Zc",
   },
   {
     id: 24,
@@ -213,7 +214,7 @@ const locations = [
     mail: "nextengi.yoav1@gmail.com",
     lat: 32.3215,
     lng: 34.8532,
-    placeId: "ChIJWTgIlWpTHRUR77gZ6mJIoOs", 
+    placeId: "ChIJWTgIlWpTHRUR77gZ6mJIoOs",
   },
   {
     id: 25,
@@ -222,7 +223,7 @@ const locations = [
     mail: "nextengi.raanana@gmail.com",
     lat: 32.1848,
     lng: 34.8712,
-    placeId: "ChIJrcytrcNPHRURgCmEsBq3O2A", 
+    placeId: "ChIJrcytrcNPHRURgCmEsBq3O2A",
   },
   {
     id: 26,
@@ -231,7 +232,7 @@ const locations = [
     mail: "yehuda@dameri.co.il",
     lat: 31.7683,
     lng: 35.2137,
-    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y", 
+    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y",
   },
   {
     id: 27,
@@ -240,7 +241,7 @@ const locations = [
     mail: "nextengi.yarom@gmail.com",
     lat: 31.8996,
     lng: 35.0073,
-    placeId: "ChIJNVbRexnTMBUR57nkAfH7Bac", 
+    placeId: "ChIJNVbRexnTMBUR57nkAfH7Bac",
   },
   {
     id: 28,
@@ -249,7 +250,16 @@ const locations = [
     mail: "shalomovadia11@gmail.com",
     lat: 31.7683,
     lng: 35.2137,
-    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y", 
-  }
+    placeId: "ChIJQ6qq6jRiMRAREq9jDV-Ub9Y",
+  },
+  {
+    id: 29,
+    locationName: "באר שבע: מגזר יהודי",
+    name: "בנימין שוקרון",
+    mail: "nextengi.rosh@gmail.com",
+    lat: 31.252,
+    lng: 34.7915,
+    placeId: "ChIJq8xq2MM0AhURlXDiH0Whj8E",
+  },
 ];
 export default locations;
