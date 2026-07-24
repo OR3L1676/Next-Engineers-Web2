@@ -8,8 +8,8 @@ const jwt = require("jsonwebtoken");
 const transporter = nodemailer.createTransport({
   service: "Gmail", // Use your email service (e.g., Gmail)
   auth: {
-    user: import.meta.env.VITE_GMAIL_USER, // Your email
-    pass: import.meta.env.VITE_GMAIL_PASSWORD,
+    user: process.env.VITE_GMAIL_USER, // Your email
+    pass: process.env.VITE_GMAIL_PASSWORD,
   },
 });
 
@@ -77,8 +77,8 @@ router.post("/", async (req, res) => {
 
     // Send email with form data
     await transporter.sendMail({
-      from: import.meta.env.VITE_GMAIL_USER, // Sender address
-      to: import.meta.env.VITE_GMAIL_TO_USER1, // List of recipients
+      from: process.env.VITE_GMAIL_USER, // Sender address
+      to: process.env.VITE_GMAIL_TO_USER1, // List of recipients
       subject: "יצירת קשר - מהנדסי הדור הבא", // Subject line
       html: `
             <div style="direction: rtl; font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
@@ -117,8 +117,8 @@ router.post("/", async (req, res) => {
 
     // Send email with form data
     await transporter.sendMail({
-      from: import.meta.env.VITE_GMAIL_USER, // Sender address
-      to: import.meta.env.VITE_GMAIL_TO_USER2, // List of recipients
+      from: process.env.VITE_GMAIL_USER, // Sender address
+      to: process.env.VITE_GMAIL_TO_USER2, // List of recipients
       subject: "יצירת קשר - מהנדסי הדור הבא", // Subject line
       html: `
             <div style="direction: rtl; font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
@@ -157,8 +157,8 @@ router.post("/", async (req, res) => {
 
     // Send email with form data
     await transporter.sendMail({
-      from: import.meta.env.VITE_GMAIL_USER, // Sender address
-      to: import.meta.env.VITE_GMAIL_TO_USER3, // List of recipients
+      from: process.env.VITE_GMAIL_USER, // Sender address
+      to: process.env.VITE_GMAIL_TO_USER3, // List of recipients
       subject: "יצירת קשר - מהנדסי הדור הבא", // Subject line
       html: `
             <div style="direction: rtl; font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
