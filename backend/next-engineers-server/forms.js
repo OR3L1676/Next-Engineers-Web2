@@ -3,6 +3,7 @@ const router = express.Router();
 const { Form, validateForm } = require("./form");
 const nodemailer = require("nodemailer"); // Import nodemailer
 const jwt = require("jsonwebtoken");
+require("dotenv").config({ path: "../../.env" });
 
 // Set up Nodemailer transporter
 const transporter = nodemailer.createTransport({
