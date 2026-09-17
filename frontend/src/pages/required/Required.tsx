@@ -387,6 +387,7 @@ const Required = () => {
             <Text
               fontFamily={textFont}
               color="white"
+              variant="h1"
               fontSize={{
                 base: "4xl",
                 sm: "5xl",
@@ -396,11 +397,10 @@ const Required = () => {
               fontWeight="600"
               mb={7}
             >
-              בואו להיות חלק
               <Box as="span" color={colorBlue}>
-                {" "}
-                מהדור הבא
+                דרושים מדריכים{" "}
               </Box>
+              לעבודה עם ילדים
             </Text>
 
             <Box w="90px" h="6px" bg={colorYellow} borderRadius="full" mb={7} />
