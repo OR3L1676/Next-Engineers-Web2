@@ -96,6 +96,13 @@ const images = {
 };
 
 // ============================================================
+// FONTS
+// ============================================================
+
+const textFont =
+  "'Assistant', 'Heebo', 'Rubik', 'Segoe UI', system-ui, sans-serif";
+
+// ============================================================
 // DATA
 // ============================================================
 
@@ -272,7 +279,7 @@ const Required = () => {
   };
 
   return (
-    <Box dir="rtl" bg="white" overflow="hidden">
+    <Box dir="rtl" bg="white" overflow="hidden" fontFamily={textFont}>
       {/* ======================================================
           HERO
       ====================================================== */}
@@ -366,23 +373,25 @@ const Required = () => {
               />
 
               <Text
+                fontFamily={textFont}
                 color={colorGreen}
-                fontWeight="800"
+                fontWeight="600"
                 fontSize={{ base: "sm", md: "md" }}
               >
                 אנחנו מגייסים מדריכים ומדריכות
               </Text>
             </HStack>
 
-            <Heading
+            <Text
+              fontFamily={textFont}
               color="white"
               fontSize={{
                 base: "4xl",
                 sm: "5xl",
-                md: "7xl",
+                md: "6xl",
               }}
               lineHeight="1.05"
-              fontWeight="900"
+              fontWeight="600"
               mb={7}
             >
               בואו להיות חלק
@@ -390,11 +399,12 @@ const Required = () => {
                 {" "}
                 מהדור הבא
               </Box>
-            </Heading>
+            </Text>
 
             <Box w="90px" h="6px" bg={colorYellow} borderRadius="full" mb={7} />
 
             <Text
+              fontFamily={textFont}
               color="whiteAlpha.900"
               fontSize={{ base: "lg", md: "2xl" }}
               lineHeight="1.8"
@@ -416,7 +426,12 @@ const Required = () => {
               >
                 <Icon as={FaCheck} color={colorGreen} />
 
-                <Text color="white" fontWeight="600" fontSize="sm">
+                <Text
+                  fontFamily={textFont}
+                  color="white"
+                  fontWeight="600"
+                  fontSize="sm"
+                >
                   הכשרה מקצועית
                 </Text>
               </HStack>
@@ -431,7 +446,12 @@ const Required = () => {
               >
                 <Icon as={FaClock} color={colorYellow} />
 
-                <Text color="white" fontWeight="600" fontSize="sm">
+                <Text
+                  fontFamily={textFont}
+                  color="white"
+                  fontWeight="600"
+                  fontSize="sm"
+                >
                   עבודה גמישה
                 </Text>
               </HStack>
@@ -446,13 +466,19 @@ const Required = () => {
               >
                 <Icon as={FaHeart} color={colorRed} />
 
-                <Text color="white" fontWeight="600" fontSize="sm">
+                <Text
+                  fontFamily={textFont}
+                  color="white"
+                  fontWeight="600"
+                  fontSize="sm"
+                >
                   עבודה עם משמעות
                 </Text>
               </HStack>
             </HStack>
 
             <Button
+              fontFamily={textFont}
               onClick={scrollToApplication}
               bg={colorYellow}
               color={darkNavy}
@@ -460,7 +486,7 @@ const Required = () => {
               px={9}
               py={7}
               fontSize="lg"
-              fontWeight="900"
+              fontWeight="600"
               borderRadius="xl"
               rightIcon={<FaArrowLeft />}
               boxShadow="0 12px 30px rgba(254, 219, 3, 0.18)"
@@ -530,11 +556,13 @@ const Required = () => {
                   py={4}
                   boxShadow="0 12px 30px rgba(69, 216, 47, 0.25)"
                 >
-                  <Text fontSize="3xl" fontWeight="900">
+                  <Text fontFamily={textFont} fontSize="3xl" fontWeight="600">
                     100%
                   </Text>
 
-                  <Text fontWeight="700">יצירתיות וסקרנות</Text>
+                  <Text fontFamily={textFont} fontWeight="600">
+                    יצירתיות וסקרנות
+                  </Text>
                 </Box>
               </Box>
             </Box>
@@ -543,16 +571,22 @@ const Required = () => {
               <HStack spacing={3}>
                 <Box w="35px" h="5px" bg={colorRed} borderRadius="full" />
 
-                <Text color={colorRed} fontWeight="900" fontSize="lg">
+                <Text
+                  fontFamily={textFont}
+                  color={colorRed}
+                  fontWeight="600"
+                  fontSize="lg"
+                >
                   עבודה עם משמעות
                 </Text>
               </HStack>
 
               <Heading
+                fontFamily={textFont}
                 color={darkNavy}
                 fontSize={{ base: "3xl", md: "5xl" }}
                 lineHeight="1.15"
-                fontWeight="900"
+                fontWeight="600"
               >
                 עבודה שהיא הרבה
                 <Box as="span" color={colorBlue}>
@@ -562,6 +596,7 @@ const Required = () => {
               </Heading>
 
               <Text
+                fontFamily={textFont}
                 color="gray.600"
                 fontSize={{ base: "md", md: "lg" }}
                 lineHeight="2"
@@ -572,6 +607,7 @@ const Required = () => {
               </Text>
 
               <Text
+                fontFamily={textFont}
                 color="gray.600"
                 fontSize={{ base: "md", md: "lg" }}
                 lineHeight="2"
@@ -589,11 +625,16 @@ const Required = () => {
                   borderBottom="5px solid"
                   borderColor={colorBlue}
                 >
-                  <Text color={colorBlue} fontSize="3xl" fontWeight="900">
+                  <Text
+                    fontFamily={textFont}
+                    color={colorBlue}
+                    fontSize="3xl"
+                    fontWeight="600"
+                  >
                     10+
                   </Text>
 
-                  <Text color={darkNavy} fontWeight="800">
+                  <Text fontFamily={textFont} color={darkNavy} fontWeight="600">
                     שנות פעילות
                   </Text>
                 </Box>
@@ -605,11 +646,16 @@ const Required = () => {
                   borderBottom="5px solid"
                   borderColor={colorGreen}
                 >
-                  <Text color={colorGreen} fontSize="3xl" fontWeight="900">
+                  <Text
+                    fontFamily={textFont}
+                    color={colorGreen}
+                    fontSize="3xl"
+                    fontWeight="600"
+                  >
                     1000+
                   </Text>
 
-                  <Text color={darkNavy} fontWeight="800">
+                  <Text fontFamily={textFont} color={darkNavy} fontWeight="600">
                     ילדים בכל שנה
                   </Text>
                 </Box>
@@ -642,7 +688,7 @@ const Required = () => {
             <HStack spacing={3}>
               <Box w="10px" h="10px" bg={colorRed} borderRadius="full" />
 
-              <Text color={colorBlue} fontWeight="900">
+              <Text fontFamily={textFont} color={colorBlue} fontWeight="600">
                 התפקיד שלכם
               </Text>
 
@@ -650,14 +696,16 @@ const Required = () => {
             </HStack>
 
             <Heading
+              fontFamily={textFont}
               color={darkNavy}
               fontSize={{ base: "3xl", md: "5xl" }}
-              fontWeight="900"
+              fontWeight="600"
             >
               אז מה עושים?
             </Heading>
 
             <Text
+              fontFamily={textFont}
               color="gray.600"
               fontSize={{ base: "md", md: "lg" }}
               maxW="720px"
@@ -703,6 +751,7 @@ const Required = () => {
                 />
 
                 <Text
+                  fontFamily={textFont}
                   position="absolute"
                   top={4}
                   left={5}
@@ -727,11 +776,17 @@ const Required = () => {
                   <Icon as={item.icon} boxSize={7} />
                 </Box>
 
-                <Heading size="md" color={darkNavy} mb={3} fontWeight="900">
+                <Heading
+                  fontFamily={textFont}
+                  size="md"
+                  color={darkNavy}
+                  mb={3}
+                  fontWeight="600"
+                >
                   {item.title}
                 </Heading>
 
-                <Text color="gray.600" lineHeight="1.85">
+                <Text fontFamily={textFont} color="gray.600" lineHeight="1.85">
                   {item.description}
                 </Text>
               </Box>
@@ -787,6 +842,7 @@ const Required = () => {
               />
 
               <Box
+                fontFamily={textFont}
                 position="absolute"
                 top={5}
                 right={5}
@@ -795,7 +851,7 @@ const Required = () => {
                 borderRadius="full"
                 px={5}
                 py={2}
-                fontWeight="900"
+                fontWeight="600"
                 boxShadow="0 10px 25px rgba(255, 84, 84, 0.30)"
               >
                 לא צריך ניסיון קודם
@@ -806,16 +862,21 @@ const Required = () => {
               <HStack spacing={3}>
                 <Box w="35px" h="5px" bg={colorYellow} borderRadius="full" />
 
-                <Text color={colorYellow} fontWeight="900">
+                <Text
+                  fontFamily={textFont}
+                  color={colorYellow}
+                  fontWeight="600"
+                >
                   חשוב לדעת
                 </Text>
               </HStack>
 
               <Heading
+                fontFamily={textFont}
                 color="white"
                 fontSize={{ base: "3xl", md: "5xl" }}
                 lineHeight="1.15"
-                fontWeight="900"
+                fontWeight="600"
               >
                 לא חייבים להיות
                 <Box as="span" color={colorGreen}>
@@ -825,6 +886,7 @@ const Required = () => {
               </Heading>
 
               <Text
+                fontFamily={textFont}
                 color="whiteAlpha.800"
                 fontSize={{ base: "md", md: "lg" }}
                 lineHeight="2"
@@ -834,6 +896,7 @@ const Required = () => {
               </Text>
 
               <Text
+                fontFamily={textFont}
                 color="whiteAlpha.800"
                 fontSize={{ base: "md", md: "lg" }}
                 lineHeight="2"
@@ -864,11 +927,16 @@ const Required = () => {
                   </Box>
 
                   <Box>
-                    <Text color={colorGreen} fontWeight="900" mb={1}>
+                    <Text
+                      fontFamily={textFont}
+                      color={colorGreen}
+                      fontWeight="600"
+                      mb={1}
+                    >
                       ניסיון קודם בהדרכה
                     </Text>
 
-                    <Text color="white" fontWeight="600">
+                    <Text fontFamily={textFont} color="white" fontWeight="600">
                       יתרון משמעותי — אך אינו חובה.
                     </Text>
                   </Box>
@@ -898,15 +966,16 @@ const Required = () => {
               <HStack spacing={3} mb={3}>
                 <Box w="10px" h="10px" borderRadius="full" bg={colorGreen} />
 
-                <Text color={colorGreen} fontWeight="900">
+                <Text fontFamily={textFont} color={colorGreen} fontWeight="600">
                   מה אנחנו מחפשים?
                 </Text>
               </HStack>
 
               <Heading
+                fontFamily={textFont}
                 color={darkNavy}
                 fontSize={{ base: "3xl", md: "4xl" }}
-                fontWeight="900"
+                fontWeight="600"
                 mb={8}
               >
                 דרישות התפקיד
@@ -938,7 +1007,12 @@ const Required = () => {
                       <Icon as={FaCheck} boxSize={3} />
                     </Box>
 
-                    <Text color="gray.700" fontWeight="600" lineHeight="1.7">
+                    <Text
+                      fontFamily={textFont}
+                      color="gray.700"
+                      fontWeight="600"
+                      lineHeight="1.7"
+                    >
                       {requirement}
                     </Text>
                   </HStack>
@@ -981,15 +1055,16 @@ const Required = () => {
                 <HStack spacing={3} mb={3}>
                   <Box w="10px" h="10px" borderRadius="full" bg={colorRed} />
 
-                  <Text color={colorRed} fontWeight="900">
+                  <Text fontFamily={textFont} color={colorRed} fontWeight="600">
                     למי זה מתאים?
                   </Text>
                 </HStack>
 
                 <Heading
+                  fontFamily={textFont}
                   color="white"
                   fontSize={{ base: "3xl", md: "4xl" }}
-                  fontWeight="900"
+                  fontWeight="600"
                   mb={8}
                 >
                   יכול להתאים לכם?
@@ -1027,7 +1102,12 @@ const Required = () => {
                       >
                         <Icon as={item.icon} color={iconColor} boxSize={5} />
 
-                        <Text color="white" fontWeight="600" fontSize="sm">
+                        <Text
+                          fontFamily={textFont}
+                          color="white"
+                          fontWeight="600"
+                          fontSize="sm"
+                        >
                           {item.text}
                         </Text>
                       </HStack>
@@ -1050,7 +1130,7 @@ const Required = () => {
             <HStack spacing={3}>
               <Box w="25px" h="5px" bg={colorBlue} borderRadius="full" />
 
-              <Text color={colorBlue} fontWeight="900">
+              <Text fontFamily={textFont} color={colorBlue} fontWeight="600">
                 קצת מהחוויה
               </Text>
 
@@ -1058,9 +1138,10 @@ const Required = () => {
             </HStack>
 
             <Heading
+              fontFamily={textFont}
               color={darkNavy}
               fontSize={{ base: "3xl", md: "5xl" }}
-              fontWeight="900"
+              fontWeight="600"
             >
               כך זה נראה בשטח
             </Heading>
@@ -1138,7 +1219,7 @@ const Required = () => {
             <HStack spacing={3}>
               <Icon as={FaHeart} color={colorRed} />
 
-              <Text color={colorRed} fontWeight="900">
+              <Text fontFamily={textFont} color={colorRed} fontWeight="600">
                 למה להצטרף אלינו?
               </Text>
 
@@ -1146,9 +1227,10 @@ const Required = () => {
             </HStack>
 
             <Heading
+              fontFamily={textFont}
               color={darkNavy}
               fontSize={{ base: "3xl", md: "5xl" }}
-              fontWeight="900"
+              fontWeight="600"
             >
               מה מחכה לכם?
             </Heading>
@@ -1204,11 +1286,17 @@ const Required = () => {
                   <Icon as={benefit.icon} boxSize={7} color={benefit.color} />
                 </Box>
 
-                <Heading size="md" color={darkNavy} mb={3} fontWeight="900">
+                <Heading
+                  fontFamily={textFont}
+                  size="md"
+                  color={darkNavy}
+                  mb={3}
+                  fontWeight="600"
+                >
                   {benefit.title}
                 </Heading>
 
-                <Text color="gray.600" lineHeight="1.85">
+                <Text fontFamily={textFont} color="gray.600" lineHeight="1.85">
                   {benefit.description}
                 </Text>
               </Box>
@@ -1235,16 +1323,17 @@ const Required = () => {
               <HStack spacing={3}>
                 <Box w="35px" h="5px" bg={colorGreen} borderRadius="full" />
 
-                <Text color={colorGreen} fontWeight="900">
+                <Text fontFamily={textFont} color={colorGreen} fontWeight="600">
                   איך נראה שיעור?
                 </Text>
               </HStack>
 
               <Heading
+                fontFamily={textFont}
                 color="white"
                 fontSize={{ base: "3xl", md: "5xl" }}
                 lineHeight="1.15"
-                fontWeight="900"
+                fontWeight="600"
               >
                 לומדים,
                 <Box as="span" color={colorBlue}>
@@ -1255,6 +1344,7 @@ const Required = () => {
               </Heading>
 
               <Text
+                fontFamily={textFont}
                 color="whiteAlpha.800"
                 fontSize={{ base: "md", md: "lg" }}
                 lineHeight="2"
@@ -1284,6 +1374,7 @@ const Required = () => {
                 ].map((step, index) => (
                   <HStack key={step.text} spacing={4}>
                     <Box
+                      fontFamily={textFont}
                       minW="44px"
                       h="44px"
                       borderRadius="full"
@@ -1292,12 +1383,12 @@ const Required = () => {
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
-                      fontWeight="900"
+                      fontWeight="600"
                     >
                       {index + 1}
                     </Box>
 
-                    <Text color="white" fontWeight="700">
+                    <Text fontFamily={textFont} color="white" fontWeight="600">
                       {step.text}
                     </Text>
                   </HStack>
@@ -1335,12 +1426,16 @@ const Required = () => {
                 <HStack spacing={3}>
                   <Box w="10px" h="10px" borderRadius="full" bg={colorGreen} />
 
-                  <Text color={colorGreen} fontWeight="900">
+                  <Text
+                    fontFamily={textFont}
+                    color={colorGreen}
+                    fontWeight="600"
+                  >
                     המטרה
                   </Text>
                 </HStack>
 
-                <Text color="white" mt={2}>
+                <Text fontFamily={textFont} color="white" mt={2}>
                   לגרום לילדים להבין שהם מסוגלים ליצור דברים בעצמם.
                 </Text>
               </Box>
@@ -1383,14 +1478,20 @@ const Required = () => {
             </Box>
 
             <Heading
+              fontFamily={textFont}
               color={darkNavy}
               fontSize={{ base: "3xl", md: "4xl" }}
-              fontWeight="900"
+              fontWeight="600"
             >
               מגייסים מדריכים בכל הארץ
             </Heading>
 
-            <Text color="gray.600" maxW="700px" lineHeight="1.9">
+            <Text
+              fontFamily={textFont}
+              color="gray.600"
+              maxW="700px"
+              lineHeight="1.9"
+            >
               אנחנו מחפשים מדריכים ומדריכות באזורים שונים בארץ. השאירו פרטים
               ונבדוק את האפשרויות הקיימות באזור שלכם.
             </Text>
@@ -1412,6 +1513,7 @@ const Required = () => {
 
               return (
                 <Box
+                  fontFamily={textFont}
                   key={area}
                   bg="white"
                   border="2px solid"
@@ -1420,7 +1522,7 @@ const Required = () => {
                   px={7}
                   py={3}
                   color={darkNavy}
-                  fontWeight="800"
+                  fontWeight="600"
                   transition="all 0.2s"
                   boxShadow="0 4px 15px rgba(16, 42, 67, 0.05)"
                   _hover={{
@@ -1481,12 +1583,13 @@ const Required = () => {
               <Box w="35px" h="5px" bg={colorRed} borderRadius="full" />
 
               <Box
+                fontFamily={textFont}
                 bg={colorYellow}
                 color={darkNavy}
                 borderRadius="full"
                 px={5}
                 py={2}
-                fontWeight="900"
+                fontWeight="600"
               >
                 מתחילים כאן
               </Box>
@@ -1495,15 +1598,17 @@ const Required = () => {
             </HStack>
 
             <Heading
+              fontFamily={textFont}
               color="white"
               fontSize={{ base: "3xl", md: "5xl" }}
               lineHeight="1.15"
-              fontWeight="900"
+              fontWeight="600"
             >
               רוצים להצטרף לצוות?
             </Heading>
 
             <Text
+              fontFamily={textFont}
               color="whiteAlpha.800"
               fontSize={{ base: "md", md: "xl" }}
               lineHeight="1.9"
@@ -1523,6 +1628,7 @@ const Required = () => {
               maxW="650px"
             >
               <Button
+                fontFamily={textFont}
                 as="a"
                 href="mailto:info@nextengineers.co.il"
                 bg={colorYellow}
@@ -1530,7 +1636,7 @@ const Required = () => {
                 size="lg"
                 py={7}
                 borderRadius="xl"
-                fontWeight="900"
+                fontWeight="600"
                 leftIcon={<FaEnvelope />}
                 _hover={{
                   bg: colorYellow,
@@ -1543,6 +1649,7 @@ const Required = () => {
               </Button>
 
               <Button
+                fontFamily={textFont}
                 as="a"
                 href="tel:0500000000"
                 bg={colorGreen}
@@ -1550,7 +1657,7 @@ const Required = () => {
                 size="lg"
                 py={7}
                 borderRadius="xl"
-                fontWeight="900"
+                fontWeight="600"
                 leftIcon={<FaPhone />}
                 _hover={{
                   bg: colorGreen,
@@ -1575,7 +1682,12 @@ const Required = () => {
               <HStack spacing={3}>
                 <Icon as={FaEnvelope} color={colorRed} />
 
-                <Text color="white" fontSize="sm" dir="ltr">
+                <Text
+                  fontFamily={textFont}
+                  color="white"
+                  fontSize="sm"
+                  dir="ltr"
+                >
                   info@nextengineers.co.il
                 </Text>
               </HStack>

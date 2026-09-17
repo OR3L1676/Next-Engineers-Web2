@@ -6,7 +6,6 @@ import {
   Image,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import React from "react";
 import image1 from "../assets/about-us-src/03355b_333b5e4c885b4babba52d71e11a0e7fa~mv2.webp";
 import ContactUsFooter from "../components/ContactUsFooter";
 

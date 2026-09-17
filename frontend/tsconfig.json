@@ -2,20 +2,36 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
+
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
+
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/3d-models/published/imagerotator/html/js/jquery-3.4.1.min.js", "backend/next-engineers-server"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+
+  "include": [
+    "src",
+    "src/3d-models/published/imagerotator/html/js/jquery-3.4.1.min.js"
+  ],
+
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

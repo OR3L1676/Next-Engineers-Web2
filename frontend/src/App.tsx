@@ -16,6 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUsFooter from "./components/ContactUsFooter";
 import KidsClub from "./pages/KidsClub";
 import PrivateRoute from "./components/PrivateRoute";
+import Required from "./pages/required/Required";
 
 const App = () => {
   const [isConnectKidsClub, setIsConnectKidsClub] = useState<Boolean>(Boolean);
@@ -56,6 +57,7 @@ const App = () => {
               <Route path="/Plans" element={<Plans />} />
               <Route path="/Locations" element={<Locations />} />
               <Route path="/Franchisees" element={<Franchisees />} />
+              <Route path="/Required" element={<Required />} />
               <Route path="/AboutUs" element={<AboutUs />} />
               <Route
                 path="/KidsClub"

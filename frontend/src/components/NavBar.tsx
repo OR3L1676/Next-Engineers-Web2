@@ -130,6 +130,17 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
             color="#3AB9FF"
             fontSize={17}
             as={RoutLink}
+            to="Required"
+            onClick={handleScrollToTop}
+          >
+            דרושים
+          </Button>
+          <Button
+            _hover={{ bg: "skyblue", color: "white" }}
+            variant="ghost"
+            color="#3AB9FF"
+            fontSize={17}
+            as={RoutLink}
             to="AboutUs"
             onClick={handleScrollToTop}
           >
@@ -260,6 +271,21 @@ const Navbar = ({ onConnectedKidClub }: Props) => {
                   }}
                 >
                   קצת עלינו
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  borderBottom="1px solid grey"
+                  display="block"
+                  _hover={{ textDecoration: "none" }}
+                  as={RoutLink}
+                  to="Required"
+                  onClick={() => {
+                    isOpen ? onClose() : onOpen();
+                    handleScrollToTop();
+                  }}
+                >
+                  דרושים
                 </Link>
               </ListItem>
               <ListItem>
