@@ -5,6 +5,7 @@ import {
   Heading,
   Text,
   useBreakpointValue,
+  Button,
 } from "@chakra-ui/react";
 import React from "react";
 import ContactUsForm from "./ContactUsForm";
@@ -43,12 +44,19 @@ const ContactUsFooter = () => {
           <Text textAlign="right" color="#3AB9FF">
             יצירת קשר
           </Text>
-          <Text
-            textAlign="right"
-            color="#3AB9FF"
-            whiteSpace="pre-line"
-          >{`רשת מהנדסי הדור הבא
-  מייל: nextengineers@gmail.com`}</Text>
+          <Button
+            backgroundColor={"transparent"}
+            variant={"text"}
+            as="a"
+            href="mailto:nextengi.office@gmail.com"
+          >
+            <Text
+              textAlign="right"
+              color="#3AB9FF"
+              whiteSpace="pre-line"
+            >{`רשת מהנדסי הדור הבא
+              מייל: nextengi.office@gmail.com`}</Text>
+          </Button>
         </Box>
         <ContactUsForm />
       </Box>

@@ -25,7 +25,7 @@ const showToast = (
   toast: any,
   title: string,
   description: string,
-  status: "success" | "error"
+  status: "success" | "error",
 ) => {
   toast({
     title: title,
@@ -46,17 +46,20 @@ const ContactUsForm = () => {
     data.email = data.email.toLowerCase();
     data.phoneNumber = data.phoneNumber.replace(/-/g, "");
     console.log(data);
-  
+
     try {
-      await axios.post("https://next-engineers-web-server.onrender.com/api/forms", {
-        firstName: data.firstName || "",
-        lastName: data.lastName || "",
-        phone: data.phoneNumber,
-        email: data.email,
-        address: data.address || "",
-        message: data.message || "",
-      });
-  
+      await axios.post(
+        "https://next-engineers-web-server.onrender.com/api/forms",
+        {
+          firstName: data.firstName || "",
+          lastName: data.lastName || "",
+          phone: data.phoneNumber,
+          email: data.email,
+          address: data.address || "",
+          message: data.message || "",
+        },
+      );
+
       showToast(toast, "שליחת טופס", "הפעולה בוצעה בהצלחה", "success");
       reset(); // Reset the form after successful submission
     } catch (error) {
@@ -152,7 +155,7 @@ const ContactUsForm = () => {
 
           <HStack spacing={4} mb="50px" justifyContent="center">
             <Link
-              href="https://www.facebook.com/Next.Engineers.group/"
+              href="https://www.facebook.com/nextengi/"
               isExternal
               _hover={{ transform: "scale(1.5)" }}
               transition="transform 0.2s ease-in-out"
@@ -160,7 +163,7 @@ const ContactUsForm = () => {
               <Icon as={FaFacebook} w={8} h={8} />
             </Link>
             <Link
-              href="https://www.instagram.com/next_engineers_group/"
+              href="https://www.instagram.com/next_engineers/"
               isExternal
               _hover={{ transform: "scale(1.5)" }}
               transition="transform 0.2s ease-in-out"
@@ -194,14 +197,14 @@ const ContactUsForm = () => {
           </HStack>
 
           <Box textAlign="center">
-          <Button
-          colorScheme="yellow"
-          type="submit"
-          isLoading={isSubmitted}  
-          disabled={isSubmitted}   
-        >
-          שלח
-          </Button>
+            <Button
+              colorScheme="yellow"
+              type="submit"
+              isLoading={isSubmitted}
+              disabled={isSubmitted}
+            >
+              שלח
+            </Button>
           </Box>
         </FormControl>
       </form>

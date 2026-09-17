@@ -380,7 +380,7 @@ const Required = () => {
                 fontWeight="600"
                 fontSize={{ base: "sm", md: "md" }}
               >
-                אנחנו מגייסים מדריכים ומדריכות
+                דרושים מדריכים ומדריכות
               </Text>
             </HStack>
 
@@ -487,7 +487,7 @@ const Required = () => {
               size="lg"
               px={9}
               py={7}
-              fontSize="lg"
+              fontSize="2xl"
               fontWeight="600"
               borderRadius="xl"
               rightIcon={<FaArrowLeft />}
@@ -1647,7 +1647,7 @@ const Required = () => {
               <Button
                 fontFamily={textFont}
                 as="a"
-                href="mailto:info@nextengineers.co.il"
+                href="mailto:nextengi.office@gmail.com"
                 bg={colorYellow}
                 color={darkNavy}
                 size="lg"
@@ -1668,7 +1668,7 @@ const Required = () => {
               <Button
                 fontFamily={textFont}
                 as="a"
-                href="tel:0500000000"
+                href="tel:033035959"
                 bg={colorGreen}
                 color={darkNavy}
                 size="lg"
@@ -1705,7 +1705,7 @@ const Required = () => {
                   fontSize="sm"
                   dir="ltr"
                 >
-                  info@nextengineers.co.il
+                  nextengi.office@gmail.com
                 </Text>
               </HStack>
             </Box>
