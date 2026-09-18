@@ -36,12 +36,20 @@ const ContactUsFooter = () => {
         minW={isLargeScreen ? "500px" : "100%"}
         height="100%"
       >
-        <Box css={{ direction: "rtl" }} pt={isLargeScreen ? "" : "100px"}>
+        <Box
+          css={{
+            direction: "rtl",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
+          }}
+          pt={isLargeScreen ? "" : "100px"}
+        >
           <Heading color="#3AB9FF">אז למה אתם מחכים?</Heading>
           <Heading color="#3BC402" mb="20px">
             הצטרפו למשפחה שלנו!
           </Heading>
-          <Text textAlign="right" color="#3AB9FF">
+          <Text textAlign="right" color="#3AB9FF" marginBottom={"5px"}>
             יצירת קשר
           </Text>
           <Button
@@ -54,9 +62,18 @@ const ContactUsFooter = () => {
               textAlign="right"
               color="#3AB9FF"
               whiteSpace="pre-line"
+              lineHeight="1.5"
             >{`רשת מהנדסי הדור הבא
               מייל: nextengi.office@gmail.com`}</Text>
           </Button>
+          <Button
+            as="a"
+            href="tel:03-303-5959"
+            variant={"text"}
+            textAlign="right"
+            color="#3AB9FF"
+            whiteSpace="pre-line"
+          >{`טלפון: 03-303-5959`}</Button>
         </Box>
         <ContactUsForm />
       </Box>

@@ -27,6 +27,7 @@ import {
   FaMapMarkerAlt,
   FaPhone,
   FaUsers,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 import hero from "../../assets/required/DSC02879.jpg";
@@ -57,6 +58,7 @@ const graySoft = "rgba(203, 203, 203, 0.59)";
 
 const greenSoft = "rgba(69, 216, 47, 0.11)";
 const greenVerySoft = "rgba(69, 216, 47, 0.05)";
+const whiteGreen = "#4cf532";
 
 const redSoft = "rgba(255, 84, 84, 0.10)";
 
@@ -1665,26 +1667,59 @@ const Required = () => {
                 שלחו קורות חיים
               </Button>
 
-              <Button
-                fontFamily={textFont}
-                as="a"
-                href="tel:033035959"
-                bg={colorGreen}
-                color={darkNavy}
-                size="lg"
-                py={7}
-                borderRadius="xl"
-                fontWeight="600"
-                leftIcon={<FaPhone />}
-                _hover={{
-                  bg: colorGreen,
-                  transform: "translateY(-4px)",
-                  boxShadow: "0 15px 35px rgba(69, 216, 47, 0.25)",
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px",
                 }}
-                transition="all 0.25s"
               >
-                צרו איתנו קשר
-              </Button>
+                <Button
+                  width={"100%"}
+                  fontFamily={textFont}
+                  as="a"
+                  href="tel:033035959"
+                  bg={colorGreen}
+                  color={darkNavy}
+                  size="lg"
+                  py={7}
+                  borderRadius="xl"
+                  fontWeight="600"
+                  leftIcon={<FaPhone />}
+                  _hover={{
+                    bg: colorGreen,
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 15px 35px rgba(69, 216, 47, 0.25)",
+                  }}
+                  transition="all 0.25s"
+                >
+                  צרו איתנו קשר
+                </Button>
+                <Button
+                  fontFamily={textFont}
+                  as="a"
+                  href="whatsapp://send?phone=972509408842"
+                  bg={whiteGreen}
+                  color={darkNavy}
+                  size="lg"
+                  py={7}
+                  borderRadius="xl"
+                  fontWeight="600"
+                  _hover={{
+                    bg: colorGreen,
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 15px 35px rgba(69, 216, 47, 0.25)",
+                  }}
+                  width={"50px"}
+                  transition="all 0.25s"
+                >
+                  <Box as="span">
+                    <FaWhatsapp size={26} />
+                  </Box>
+                </Button>
+              </Box>
             </SimpleGrid>
 
             <Box

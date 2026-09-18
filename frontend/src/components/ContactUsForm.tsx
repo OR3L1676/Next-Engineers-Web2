@@ -179,7 +179,7 @@ const ContactUsForm = () => {
               <Icon as={FaLinkedin} w={8} h={8} />
             </Link>
             <Link
-              href="https://www.youtube.com/@next_engineers"
+              href="https://www.youtube.com/@NextEngineers"
               isExternal
               _hover={{ transform: "scale(1.5)" }}
               transition="transform 0.2s ease-in-out"
